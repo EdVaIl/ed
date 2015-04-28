@@ -145,6 +145,7 @@ set hlsearch
 set laststatus=2
 set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
 set list
+set nowrap
 
 " altercation/vim-colors-solarized
 "let g:solarized_termcolors  = 256
