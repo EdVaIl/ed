@@ -144,12 +144,15 @@ endif
 " Ed Ilyin
 
 set number
+set ignorecase
 set hlsearch
+set smartcase
 set laststatus=2
 set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
 set list
 set nowrap
 set shiftwidth=4
+set softtabstop=4
 
 " altercation/vim-colors-solarized
 "let g:solarized_termcolors  = 256
