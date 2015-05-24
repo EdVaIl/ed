@@ -204,3 +204,5 @@ let g:javascript_conceal_NaN        = "ℕ"
 let g:javascript_conceal_prototype  = "¶"
 let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
+
+set gfn=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
