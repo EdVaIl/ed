@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
@@ -160,7 +161,10 @@ set t_Co=16
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 let g:solarized_visibility  = 'low'
-colorscheme solarized
+"colorscheme solarized
+
+" chriskempson/base16-vim
+colorscheme base16-default
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
