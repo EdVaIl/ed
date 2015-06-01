@@ -164,7 +164,7 @@ let g:solarized_visibility  = 'low'
 "colorscheme solarized
 
 " chriskempson/base16-vim
-colorscheme base16-default
+colorscheme base16-solarized
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
