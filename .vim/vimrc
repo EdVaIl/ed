@@ -164,6 +164,7 @@ let g:solarized_visibility  = 'low'
 "colorscheme solarized
 
 " chriskempson/base16-vim
+let base16colorspace=256
 colorscheme base16-solarized
 
 " vim-airline
