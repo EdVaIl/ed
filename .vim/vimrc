@@ -140,12 +140,13 @@ endif
 
 " Ed Ilyin
 
+set encoding=utf-8
 set number
 set ignorecase
 set hlsearch
 set smartcase
 set laststatus=2
-set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
+set listchars=eol:?,tab:>-�\ ,trail:~,extends:>,precedes:<
 set list
 set nowrap
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
