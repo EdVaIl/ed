@@ -146,7 +146,7 @@ set ignorecase
 set hlsearch
 set smartcase
 set laststatus=2
-set listchars=nbsp:�,eol:�,tab:>-,extends:�,precedes:�,trail:�
+set listchars=nbsp:¬,eol:¶,tab:→\ ,extends:»,precedes:«,trail:·
 set list
 set nowrap
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
@@ -196,19 +196,20 @@ augroup jsfolding
 	autocmd!
 	autocmd FileType javascript setlocal foldenable|setlocal foldmethod=syntax
 augroup END
-"au VimEnter * syntax keyword Statement lambda conceal cchar=λ
+"au VimEnter * syntax keyword Statement lambda conceal cchar=Î»
 "au VimEnter * hi! link Conceal Statement
 "au VimEnter * set conceallevel=2
 "let b:javascript_fold = 1
 set cole=1
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_conceal_static     = "•"
-let g:javascript_conceal_super      = "Ω"
+let g:javascript_conceal			= 1
+let g:javascript_conceal_function	= "ƒ"
+let g:javascript_conceal_null		= "ø"
+let g:javascript_conceal_this		= "@"
+let g:javascript_conceal_return		= "⇚"
+let g:javascript_conceal_undefined	= "¿"
+let g:javascript_conceal_NaN		= "ℕ"
+let g:javascript_conceal_prototype	= "⁋"
+let g:javascript_conceal_static		= "•"
+let g:javascript_conceal_super		= "Ω"
 
 set gfn=DejaVu\ Sans\ Mono\ for\ Powerline\ 18
