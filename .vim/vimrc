@@ -146,7 +146,7 @@ set ignorecase
 set hlsearch
 set smartcase
 set laststatus=2
-set listchars=nbsp:¬,eol:¶,tab:→\ ,extends:»,precedes:«,trail:·
+set listchars=nbsp:¬,eol:⏎,tab:╾┈,extends:▶,precedes:◀,trail:·
 set list
 set nowrap
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
