@@ -93,7 +93,11 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-	set mouse=a
+	set mouse+=a
+	if &term =~ '^screen'
+	    " tmux knows the extended mouse mode
+	    set ttymouse=xterm2
+	endif
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -146,7 +150,7 @@ set ignorecase
 set hlsearch
 set smartcase
 set laststatus=2
-set listchars=nbsp:¬,eol:⏎,tab:╾┈,extends:▶,precedes:◀,trail:·
+set listchars=nbsp:¬,eol:⏎,tab:▯▹,extends:▶,precedes:◀,trail:·
 set list
 set nowrap
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
