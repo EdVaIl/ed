@@ -17,7 +17,6 @@ Cyan=42,161,152
 BoldCyan=71,207,197
 White=147,161,161
 BoldWhite=253,246,227
-
 BoldAsFont=yes
 Transparency=low
 CursorType=line
@@ -33,3 +32,4 @@ FontSmoothing=partial
 BoldAsColour=yes
 FontHeight=14
 AllowBlinking=yes
+Term=xterm-256color
