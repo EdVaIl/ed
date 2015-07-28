@@ -61,7 +61,7 @@ filetype plugin indent on    " required
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
-	finish
+  finish
 endif
 
 " Use Vim settings, rather than Vi settings (much better!).
@@ -72,9 +72,9 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-	set nobackup		" do not keep a backup file, use versions instead
+  set nobackup		" do not keep a backup file, use versions instead
 else
-	set backup		" keep a backup file
+  set backup		" keep a backup file
 endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
@@ -93,44 +93,44 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-	set mouse+=a
-	if &term =~ '^screen'
-	    " tmux knows the extended mouse mode
-	    set ttymouse=xterm2
-	endif
+  set mouse+=a
+  if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+  endif
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
-	filetype plugin indent on
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
 
-	" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-		au!
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    au!
 
-		" For all text files set 'textwidth' to 78 characters.
-		autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-		" When editing a file, always jump to the last known cursor position.
-		" Don't do it when the position is invalid or when inside an event handler
-		" (happens when dropping a file on gvim).
-		" Also don't do it when the mark is in the first line, that is the default
-		" position when opening a file.
-		autocmd BufReadPost *
-					\ if line("'\"") > 1 && line("'\"") <= line("$") |
-					\   exe "normal! g`\"" |
-					\ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
-	augroup END
+  augroup END
 
 else
 
-	set autoindent		" always set autoindenting on
+  set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -138,8 +138,8 @@ endif " has("autocmd")
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-				\ | wincmd p | diffthis
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
 endif
 
 " Ed Ilyin
@@ -153,14 +153,14 @@ set laststatus=2
 set listchars=nbsp:¬,eol:⏎,tab:▸▹,extends:▷,precedes:◁,trail:·
 set list
 set nowrap
-set softtabstop=2 shiftwidth=2
+set softtabstop=2 shiftwidth=2 expandtab
 
 " altercation/vim-colors-solarized
 syntax enable
 if has('gui_running')
-	set background=light
+  set background=light
 else
-	set background=dark
+  set background=dark
 endif
 set t_Co=256
 let g:solarized_termcolors=256
@@ -198,15 +198,15 @@ let g:ctrlp_working_path_mode = 'a'
 " pangloss/vim-javascript
 "let g:javascript_conceal = 1
 augroup jsfolding
-	autocmd!
-	autocmd FileType javascript setlocal foldenable|setlocal foldmethod=syntax
+  autocmd!
+  autocmd FileType javascript setlocal foldenable|setlocal foldmethod=syntax
 augroup END
 au VimEnter * syntax keyword Statement lambda conceal cchar=λ
 "au VimEnter * hi! link Conceal Statement
 "au VimEnter * set conceallevel=2
 "let b:javascript_fold = 1
 set cole=1
-let g:javascript_conceal			= 1
+let g:javascript_conceal		= 1
 let g:javascript_conceal_function	= "ƒ"
 let g:javascript_conceal_null		= "ø"
 let g:javascript_conceal_this		= "@"
@@ -228,3 +228,5 @@ let &t_ti.="\e[?7727h"
 let &t_te.="\e[?7727l"
 noremap <Esc>O[ <Esc>
 noremap! <Esc>O[ <C-c>
+
+set whichwrap+=<,>,h,l,[,]
