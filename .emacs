@@ -1,11 +1,16 @@
-(require 'package)
-(push '("marmalade" . "http://marmalade-repo.org/packages/")
-      package-archives )
-(push '("melpa" . "http://melpa.milkbox.net/packages/")
-      package-archives)
-(package-initialize)
-(require 'evil)
-(evil-mode 1)
-(require 'powerline-evil)
-(powerline-center-evil-theme)
-(load-theme 'base16-default-dark t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-mode t)
+ '(global-evil-surround-mode t)
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
