@@ -14,7 +14,6 @@ Cyan=117,181,170
 BoldCyan=143,85,54
 White=208,208,208
 BoldWhite=245,245,245
-
 BoldAsFont=yes
 Transparency=high
 CursorType=block
