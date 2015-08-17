@@ -1,36 +1,38 @@
-(defvar required-packages
-  '(ido-hacks
-    web-mode
-    seethru
-    evil-terminal-cursor-changer
-    powerline-evil
-    yasnippet
-    evil-org
-    magit
+(defvar my-packages
+  '(
     auto-complete
-    projectile
     company
-    evil-leader
     evil-easymotion
-    evil-surround)
+    evil-leader
+    evil-org
+    evil-surround
+    evil-terminal-cursor-changer
+    ido-hacks
+    magit
+    powerline-evil
+    projectile
+    seethru
+    web-mode
+    yasnippet
+  )
   "A list of packages to ensure are installed at launch.")
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (require 'cl)
 ; method to check if all packages are installed
-(defun packages-installed-p ()
-  (loop for p in required-packages
+(defun my-packages-installed-p ()
+  (loop for p in my-packages
 	when (not (package-installed-p p)) do (return nil)
 	finally (return t)))
 (package-initialize)
 ; if not all packages are installed, check one by one and install the missing ones.
-(unless (packages-installed-p)
+(unless (my-packages-installed-p)
 ; check for new packages (package versions)
   (message "%s" "Emacs is now refreshing its package database...")
   (package-refresh-contents)
   (message "%s" " done.")
 ; install the missing packages
-  (dolist (p required-packages)
+  (dolist (p my-packages)
     (when (not (package-installed-p p))
       (package-install p))))
 (require 'seethru)
