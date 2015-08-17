@@ -1,9 +1,9 @@
 (package-initialize)
 (require 'ido-hacks)
-(require 'web-mode)
-(require 'seethru)
+;(require 'web-mode)
+;(require 'seethru)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(powerline-evil-center-color-theme)
+;(powerline-evil-center-color-theme)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,6 +31,7 @@
      ("melpa" . "http://melpa.org/packages/"))))
  '(server-mode t)
  '(show-paren-mode t)
+ '(show-paren-style (quote expression))
  '(tool-bar-mode nil)
  '(visible-bell t)
  '(xterm-mouse-mode t))
