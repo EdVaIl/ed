@@ -1,7 +1,11 @@
 (package-initialize)
 (require 'ido-hacks)
 (require 'web-mode)
-(require 'seethru)
+;(require 'seethru)
+(require 'evil-terminal-cursor-changer)
+     (setq evil-visual-state-cursor 'box) ; █
+     (setq evil-insert-state-cursor 'bar) ; ⎸
+     (setq evil-emacs-state-cursor 'hbar) ; _
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (powerline-evil-center-color-theme)
 (custom-set-variables
@@ -15,8 +19,10 @@
    (quote
     ("9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" default)))
  '(evil-mode t)
+ '(global-auto-complete-mode t)
  '(global-evil-surround-mode t)
  '(global-linum-mode t)
+ '(ido-enable-flex-matching t)
  '(ido-hacks-mode t)
  '(ido-mode (quote both) nil (ido))
  '(inhibit-startup-screen t)
@@ -31,9 +37,11 @@
      ("melpa" . "http://melpa.org/packages/"))))
  '(server-mode t)
  '(show-paren-mode t)
+ '(show-paren-style (quote expression))
  '(tool-bar-mode nil)
  '(visible-bell t)
- '(xterm-mouse-mode t))
+ '(xterm-mouse-mode t)
+ '(yas-global-mode t nil (yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
