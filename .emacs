@@ -10,7 +10,9 @@
     auto-complete
     projectile
     company
-    evil-leader)
+    evil-leader
+    evil-easymotion
+    evil-surround)
   "A list of packages to ensure are installed at launch.")
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
