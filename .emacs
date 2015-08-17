@@ -1,16 +1,11 @@
 (package-initialize)
 (require 'ido-hacks)
-<<<<<<< HEAD
 ;(require 'web-mode)
 ;(require 'seethru)
-=======
-(require 'web-mode)
-;(require 'seethru)
-(require 'evil-terminal-cursor-changer)
+;(require 'evil-terminal-cursor-changer)
      (setq evil-visual-state-cursor 'box) ; █
      (setq evil-insert-state-cursor 'bar) ; ⎸
      (setq evil-emacs-state-cursor 'hbar) ; _
->>>>>>> refs/remotes/origin/master
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 ;(powerline-evil-center-color-theme)
 (custom-set-variables
