@@ -65,6 +65,7 @@
  '(evil-mode t)
  '(fci-rule-color "#383838")
  '(global-auto-complete-mode t)
+ '(global-auto-revert-mode t)
  '(global-evil-surround-mode t)
  '(global-linum-mode t)
  '(ido-enable-flex-matching t)
