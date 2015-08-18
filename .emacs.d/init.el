@@ -38,10 +38,11 @@
 (require 'seethru)
   (seethru 80)
 (powerline-evil-center-color-theme)
-(require 'evil-terminal-cursor-changer)
-  (setq evil-visual-state-cursor 'box) ; █
-  (setq evil-insert-state-cursor 'bar) ; ⎸
-  (setq evil-emacs-state-cursor 'hbar) ; _
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer))
+    (setq evil-visual-state-cursor 'box) ; █
+    (setq evil-insert-state-cursor 'bar) ; ⎸
+    (setq evil-emacs-state-cursor 'hbar) ; _
 (require 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (require 'ido-hacks)
