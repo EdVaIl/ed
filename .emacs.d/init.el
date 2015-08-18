@@ -39,7 +39,6 @@
 (require 'seethru)
   (seethru 80)
 (powerline-evil-center-color-theme)
-=======
 (unless (display-graphic-p)
   (require 'evil-terminal-cursor-changer))
     (setq evil-emacs-state-cursor "violet")
