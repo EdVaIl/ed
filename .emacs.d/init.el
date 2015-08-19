@@ -2,6 +2,7 @@
   '(
     auto-complete
     company
+    cygwin-mount
     evil-easymotion
     evil-leader
     evil-org
@@ -54,6 +55,8 @@
 (require 'evil-leader)
   (global-evil-leader-mode)
 (require 'evil-org)
+(require 'cygwin-mount)
+  (cygwin-mount-activate)
 (git-gutter:linum-setup)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -65,6 +68,8 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wombat)))
+ '(cygwin-mount-build-mount-table-asynch t)
+ '(cygwin-mount-cygwin-bin-directory "C:\\cygwin64\\bin")
  '(display-time-24hr-format t)
  '(display-time-default-load-average nil)
  '(display-time-mode t)
