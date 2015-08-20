@@ -4,6 +4,7 @@
     company
     cygwin-mount
     evil-easymotion
+    evil-god-state
     evil-leader
     evil-org
     evil-surround
@@ -12,10 +13,12 @@
     ido-hacks
     magit
     powerline-evil
+    powershell
     projectile
     seethru
     web-mode
     yasnippet
+    diminish
   )
   "A list of packages to ensure are installed at launch.")
 (require 'package)
@@ -37,9 +40,17 @@
   (dolist (p my-packages)
     (when (not (package-installed-p p))
       (package-install p))))
+
 (require 'seethru)
-  (seethru 80)
+  (seethru 90)
 (powerline-evil-center-color-theme)
+(require 'evil-god-state)
+  (global-set-key (kbd "<escape>") 'god-local-mode)
+  (evil-define-key 'normal global-map "," 'evil-execute-in-god-state)
+  (add-hook 'evil-god-state-entry-hook (lambda () (diminish 'god-local-mode)))
+  (add-hook 'evil-god-state-exit-hook (lambda () (diminish-undo 'god-local-mode)))
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail)
+  (god-mode)
 (unless (display-graphic-p)
   (require 'evil-terminal-cursor-changer))
     (setq evil-emacs-state-cursor "violet")
@@ -58,6 +69,7 @@
 (require 'cygwin-mount)
   (cygwin-mount-activate)
 (git-gutter:linum-setup)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -74,7 +86,6 @@
  '(display-time-default-load-average nil)
  '(display-time-mode t)
  '(evil-mode t)
- '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
  '(global-evil-surround-mode t)
@@ -89,10 +100,10 @@
  '(linum-delay t)
  '(menu-bar-mode nil)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 5) ((control)))))
+ '(org-startup-folded (quote content))
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(server-mode t)
- '(shell-file-name "bash")
  '(show-paren-mode t)
  '(show-paren-style (quote expression))
  '(size-indication-mode t)
@@ -105,4 +116,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 139 :family "DejaVu Sans Mono for Powerline")))))
+ )
