@@ -19,6 +19,7 @@
     web-mode
     yasnippet
     diminish
+    ssh-agency
   )
   "A list of packages to ensure are installed at launch.")
 (require 'package)
@@ -69,6 +70,8 @@
 (require 'cygwin-mount)
   (cygwin-mount-activate)
 (git-gutter:linum-setup)
+(require 'magit)
+  (global-set-key (kbd "C-x g") 'magit-status)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -98,6 +101,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(initial-scratch-message nil)
  '(linum-delay t)
+ '(magit-push-always-verify nil)
  '(menu-bar-mode nil)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 5) ((control)))))
  '(org-startup-folded (quote content))
