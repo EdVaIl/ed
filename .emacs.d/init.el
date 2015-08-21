@@ -166,6 +166,7 @@
  '(show-paren-mode t)
  '(show-paren-style (quote expression))
  '(size-indication-mode t)
+ '(solarized-termcolors 256)
  '(tool-bar-mode nil)
  '(visible-bell t)
  '(xterm-mouse-mode t)
@@ -177,4 +178,5 @@
  ;; If there is more than one, they won't work right.
  )
 
+(set-terminal-parameter nil 'background-mode 'dark)
 (enable-theme 'solarized)
