@@ -9,20 +9,22 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (solarized)))
+ '(custom-enabled-themes (quote (monokai)))
  '(custom-file "~/.emacs.d/custom.el")
  '(custom-safe-themes
    (quote
-    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+    ("05c3bc4eb1219953a4f182e10de1f7466d28987f48d647c01f1f0037ff35ab9a" default)))
  '(cygwin-mount-build-mount-table-asynch t)
  '(cygwin-mount-cygwin-bin-directory "C:\\cygwin64\\bin")
  '(display-time-24hr-format t)
  '(display-time-default-load-average nil)
  '(display-time-mode t)
+ '(evil-escape-mode t)
  '(evil-mode t)
  '(frame-background-mode (quote dark))
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
+ '(global-company-mode t)
  '(global-evil-surround-mode t)
  '(global-git-gutter-mode t)
  '(global-linum-mode t)
@@ -39,6 +41,7 @@
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 5) ((control)))))
  '(org-startup-folded (quote content))
  '(powerline-default-separator (quote wave))
+ '(powerline-height 30)
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(server-mode t)
@@ -49,6 +52,7 @@
  '(solarized-termcolors 256)
  '(tool-bar-mode nil)
  '(truncate-lines t)
+ '(vc-display-status t)
  '(visible-bell t)
  '(xterm-mouse-mode t)
  '(yas-global-mode t nil (yasnippet)))
@@ -57,4 +61,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 108 :family "DejaVu Sans Mono for Powerline")))))
+ '(default ((t (:height 143 :family "DejaVu Sans Mono for Powerline")))))

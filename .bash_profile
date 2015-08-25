@@ -43,4 +43,3 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 unset INFOPATH TZ
-_byobu_sourced=1 . /usr/local/bin/byobu-launch 2>/dev/null || true
