@@ -19,6 +19,7 @@
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
+     colors
      dash
      emacs-lisp
      git
