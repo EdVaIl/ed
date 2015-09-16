@@ -25,6 +25,7 @@
      git
      github
      gnus
+     haskell
      html
      javascript
      ;; markdown
@@ -75,12 +76,12 @@ before layers configuration."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          zenburn
+                         leuven
+                         monokai
                          solarized-light
                          solarized-dark
                          spacemacs-light
                          spacemacs-dark
-                         leuven
-                         monokai
                          )
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -161,6 +162,8 @@ before layers configuration."
    ;; specified with an installed package.
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
+
+   evil-escape-key-sequence "hc"
    )
   ;; User initialization goes here
   )
@@ -171,8 +174,26 @@ before layers configuration."
 layers configuration."
   (fancy-battery-mode)
   (setq org-bullets-bullet-list '("◉" "●" "○" "✿" "❀"))
-  )
-
+  (eval-after-load 'quail
+    '(progn
+       (add-to-list 'quail-keyboard-layout-alist
+                    '("dvp" . "\
+                              \
+  %&7[5{3}1(9=0*2)4+6]8!`#    \
+  ;:,<.>pPyYfFgGcCrRlL/?@^    \
+  aAoOeEuUiIdDhHtTnNsS-_\\|    \
+  '\"qQjJkKxXbBmMwWvVzZ        \
+                              "))
+       (add-to-list 'quail-keyboard-layout-alist
+                    '("dvorak" . "\
+                              \
+  1!2@3#4$5%6^7&8*9(0)[{]}`~  \
+  '\",<.>pPyYfFgGcCrRlL/?=+    \
+  aAoOeEuUiIdDhHtTnNsS-_\\|    \
+  ;:qQjJkKxXbBmMwWvVzZ         \
+                             "))
+       (quail-set-keyboard-layout "dvorak")))
+) 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
@@ -193,4 +214,5 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
