@@ -291,16 +291,18 @@ layers configuration. You are free to put any user code."
        (tags-todo "-BLOCKED=\"t\"-MAYBE-SOMEDAY/PROJECT"
                   ((org-agenda-overriding-header "Determinare i prossimi passi:")))
        (tags "INBOX+LEVEL=2"
-             ((org-agenda-overriding-header "Arrivo (controllato registratore, OneNote ed e-mail):")))
-       (tags-todo "@home-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"/-PROJECT"
+             ((org-agenda-overriding-header "Arrivo (controllato registratore, le immagini, OneNote ed e-mail):")))
+       (tags-todo "@home-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions at home:")))
-       (tags-todo "@also-BLOCKED=\"t\"|@lunch-BLOCKED=\"t\""
+       (tags-todo "@affari-BLOCKED=\"t\""
+                  ((org-agenda-overriding-header "Le seguenti misure pratiche:")))
+       (tags-todo "@also-BLOCKED=\"t\"-SCHEDULED>\"<now>\"|@lunch-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Next actions at ALSO Cloud:")))
        (tags-todo "@negozio/-PROJECT"
                   ((org-agenda-overriding-header "Cose da comprare:")))
-       (tags-todo "@activelife-TIMESTAMP>\"<now>\"|@piscina-TIMESTAMP>\"<now>\"|@atm"
+       (tags-todo "@activelife-TIMESTAMP>\"<now>\"|@piscina-TIMESTAMP>\"<now>\"|@atm|@car-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Other context-dependent next actions:")))
-       (tags-todo "-@home-@also-@lunch-@activelife-@piscina-@atm-@negozio-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
+       (tags-todo "-SOMEDAY-@home-@affari-@also-@lunch-@activelife-@piscina-@atm-@negozio-@car-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions anywhere:"))))
       nil)
      ("w" "Weekly review"
@@ -312,7 +314,7 @@ layers configuration. You are free to put any user code."
                   (org-agenda-skip-entry-if
                    (quote todo)
                    (quote
-                    ("DONE")))))))
+                    ("DONE" "CANCELED")))))))
        (stuck "" nil)
        (tags "INBOX+LEVEL=2"
              ((org-agenda-overriding-header "Inbox (check also OneNote and mail):")))
@@ -329,7 +331,11 @@ layers configuration. You are free to put any user code."
  '(org-enforce-todo-dependencies t)
  '(org-log-done (quote time))
  '(org-startup-with-inline-images t)
- '(org-stuck-projects (quote ("-MAYBE-SOMEDAY/PROJECT" ("TODO") nil "")))
+ '(org-stuck-projects
+   (quote
+    ("-MAYBE-SOMEDAY/PROJECT"
+     ("TODO" "STARTED")
+     nil "")))
  '(org-todo-keyword-faces
    (quote
     (("PROJECT" . "yellow4")
@@ -339,8 +345,8 @@ layers configuration. You are free to put any user code."
  '(org-todo-keywords
    (quote
     ((sequence "PROJECT(p)" "FINISHED(f)")
-     (sequence "WAITING(w!)" "TODO(t)" "STARTED(s!)" "DONE(d)")
-     (sequence "|" "CANCELED(c)"))))
+     (sequence "TODO(t)" "STARTED(s!)" "DONE(d)")
+     (type "WAITING(w!)" "CANCELED(c)"))))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values (quote ((mode@ . org))))
