@@ -48,7 +48,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(bbdb)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -239,6 +239,7 @@ layers configuration. You are free to put any user code."
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
+ '(bbdb-file "~/OneDrive/.emacs.d/bbdb")
  '(cal-tex-24 t)
  '(calendar-latitude 56.959454801)
  '(calendar-longitude 24.237804606)
@@ -284,15 +285,19 @@ layers configuration. You are free to put any user code."
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(org-agenda-custom-commands
    (quote
-    (("d" "Today"
+    (("d" . "Today")
+     ("de" "Today everywhere"
       ((agenda ""
                ((org-agenda-span
                  (quote day))))
        (tags-todo "-BLOCKED=\"t\"-MAYBE-SOMEDAY/PROJECT"
                   ((org-agenda-overriding-header "Determinare i prossimi passi:")))
-       (tags "INBOX+LEVEL=2"
-             ((org-agenda-overriding-header "Arrivo (controllato registratore, le immagini, OneNote ed e-mail):")))
-       (tags-todo "@home-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"/-PROJECT"
+       (tags "LEVEL=1"
+             ((org-agenda-overriding-header "Arrivo (controllato documenti cartacei, registratore, le immagini, OneNote ed e-mail):")
+              (org-agenda-files
+               (quote
+                ("~/OneDrive/.emacs.d/org/inbox.org")))))
+       (tags-todo "@home-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions at home:")))
        (tags-todo "@affari-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Le seguenti misure pratiche:")))
@@ -300,12 +305,24 @@ layers configuration. You are free to put any user code."
                   ((org-agenda-overriding-header "Next actions at ALSO Cloud:")))
        (tags-todo "@negozio/-PROJECT"
                   ((org-agenda-overriding-header "Cose da comprare:")))
-       (tags-todo "@activelife-TIMESTAMP>\"<now>\"|@piscina-TIMESTAMP>\"<now>\"|@atm|@car-BLOCKED=\"t\""
+       (tags-todo "@activelife-TIMESTAMP>\"<now>\"|@piscina-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"|@atm|@car-BLOCKED=\"t\"-SCHEDULED>\"<now>\""
                   ((org-agenda-overriding-header "Other context-dependent next actions:")))
-       (tags-todo "-SOMEDAY-@home-@affari-@also-@lunch-@activelife-@piscina-@atm-@negozio-@car-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
+       (tags-todo "-MAYBE-SOMEDAY-@home-@affari-@also-@lunch-@activelife-@piscina-@atm-@negozio-@car-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions anywhere:"))))
+      nil nil)
+     ("da" "Today at ALSO Cloud"
+      ((agenda ""
+               ((org-agenda-span
+                 (quote day))))
+       (tags-todo "-BLOCKED=\"t\"-MAYBE-SOMEDAY/PROJECT"
+                  ((org-agenda-overriding-header "Determinare i prossimi passi:")))
+       (tags-todo "@also-BLOCKED=\"t\"-SCHEDULED>\"<now>\"|@lunch-BLOCKED=\"t\""
+                  ((org-agenda-overriding-header "Next actions at ALSO Cloud:"))))
+      ((org-agenda-files
+        (quote
+         ("~/OneDrive/.emacs.d/org/also.org"))))
       nil)
-     ("w" "Weekly review"
+     ("w" "Week everywhere"
       ((agenda ""
                ((org-agenda-start-day "-7")
                 (org-agenda-span 15)
@@ -316,14 +333,19 @@ layers configuration. You are free to put any user code."
                    (quote
                     ("DONE" "CANCELED")))))))
        (stuck "" nil)
-       (tags "INBOX+LEVEL=2"
-             ((org-agenda-overriding-header "Inbox (check also OneNote and mail):")))
+       (tags "LEVEL=1"
+             ((org-agenda-overriding-header "Inbox (check also OneNote and mail):")
+              (org-agenda-files
+               (quote
+                ("~/OneDrive/.emacs.d/org/inbox.org")))))
        (tags-todo "BLOCKED=\"t\"-SCHEDULED>\"<now>\"/WAITING"
                   ((org-agenda-overriding-header "Force:")))
        (tags-todo "SOMEDAY" nil)
        (tags-todo "MAYBE" nil))
-      nil))))
- '(org-agenda-files (quote ("~/OneDrive/Documents/Org/todo.org")))
+      nil nil))))
+ '(org-agenda-files
+   (quote
+    ("~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
  '(org-agenda-include-diary t)
  '(org-agenda-start-with-log-mode t)
  '(org-bullets-bullet-list (quote ("◉" "●" "○" "✿" "❀")))
