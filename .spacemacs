@@ -86,13 +86,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(zenburn
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
                          solarized-dark
                          leuven
-                         monokai
-                         zenburn)
+                         monokai)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -279,6 +279,7 @@ layers configuration. You are free to put any user code."
  '(hl-fg-colors
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
+ '(js2-basic-offset 2)
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
@@ -286,8 +287,14 @@ layers configuration. You are free to put any user code."
  '(org-agenda-custom-commands
    (quote
     (("d" . "Today")
-     ("de" "Today everywhere"
-      ((agenda ""
+     ("dd" "Today everywhere"
+      ((tags "CATEGORY=\"Tickler\""
+             ((org-agenda-overriding-header "Tickler")
+              (org-agenda-files
+               (quote
+                ("~/OneDrive/.emacs.d/org/tickler.org")))
+              (org-agenda-max-entries 1)))
+       (agenda ""
                ((org-agenda-span
                  (quote day))))
        (tags-todo "-BLOCKED=\"t\"-MAYBE-SOMEDAY/PROJECT"
@@ -296,28 +303,38 @@ layers configuration. You are free to put any user code."
              ((org-agenda-overriding-header "Arrivo (controllato documenti cartacei, registratore, le immagini, OneNote ed e-mail):")
               (org-agenda-files
                (quote
-                ("~/OneDrive/.emacs.d/org/inbox.org")))))
-       (tags-todo "@home-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
+                ("~/OneDrive/.emacs.d/org/inbox.org")))
+              (org-agenda-max-entries 1)))
+       (tags-todo "@home-BLOCKED=\"t\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions at home:")))
        (tags-todo "@affari-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Le seguenti misure pratiche:")))
-       (tags-todo "@also-BLOCKED=\"t\"-SCHEDULED>\"<now>\"|@lunch-BLOCKED=\"t\""
+       (tags-todo "@also-BLOCKED=\"t\"|@lunch-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Next actions at ALSO Cloud:")))
        (tags-todo "@negozio/-PROJECT"
                   ((org-agenda-overriding-header "Cose da comprare:")))
-       (tags-todo "@activelife-TIMESTAMP>\"<now>\"|@piscina-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"|@atm|@car-BLOCKED=\"t\"-SCHEDULED>\"<now>\""
+       (tags-todo "@activelife-BLOCKED=\"t\"|@piscina-BLOCKED=\"t\"|@atm|@car-BLOCKED=\"t\""
                   ((org-agenda-overriding-header "Other context-dependent next actions:")))
-       (tags-todo "-MAYBE-SOMEDAY-@home-@affari-@also-@lunch-@activelife-@piscina-@atm-@negozio-@car-BLOCKED=\"t\"-TIMESTAMP>\"<now>\"-SCHEDULED>\"<now>\"-DEADLINE>\"<now>\"/-PROJECT"
-                  ((org-agenda-overriding-header "Next actions anywhere:"))))
+       (tags-todo "-MAYBE-SOMEDAY-@home-@affari-@activelife-@piscina-@atm-@negozio-@car-BLOCKED=\"t\"/-PROJECT"
+                  ((org-agenda-overriding-header "Next actions anywhere:")))
+       (agenda ""
+               ((org-agenda-start-day "+1")
+                (org-agenda-span
+                 (quote day)))))
       nil nil)
      ("da" "Today at ALSO Cloud"
-      ((agenda ""
-               ((org-agenda-span
-                 (quote day))))
+      ((stuck "" nil)
        (tags-todo "-BLOCKED=\"t\"-MAYBE-SOMEDAY/PROJECT"
                   ((org-agenda-overriding-header "Determinare i prossimi passi:")))
-       (tags-todo "@also-BLOCKED=\"t\"-SCHEDULED>\"<now>\"|@lunch-BLOCKED=\"t\""
-                  ((org-agenda-overriding-header "Next actions at ALSO Cloud:"))))
+       (agenda ""
+               ((org-agenda-span
+                 (quote day))))
+       (tags-todo "-BLOCKED=\"t\""
+                  ((org-agenda-overriding-header "Next actions at ALSO Cloud:")))
+       (agenda ""
+               ((org-agenda-start-day "+1")
+                (org-agenda-span
+                 (quote day)))))
       ((org-agenda-files
         (quote
          ("~/OneDrive/.emacs.d/org/also.org"))))
@@ -338,20 +355,28 @@ layers configuration. You are free to put any user code."
               (org-agenda-files
                (quote
                 ("~/OneDrive/.emacs.d/org/inbox.org")))))
-       (tags-todo "BLOCKED=\"t\"-SCHEDULED>\"<now>\"/WAITING"
+       (tags-todo "BLOCKED=\"t\"/WAITING"
                   ((org-agenda-overriding-header "Force:")))
        (tags-todo "SOMEDAY" nil)
        (tags-todo "MAYBE" nil))
       nil nil))))
  '(org-agenda-files
    (quote
-    ("~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
+    ("~/OneDrive/.emacs.d/org/famiglia.org" "~/OneDrive/.emacs.d/org/io.org" "~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
  '(org-agenda-include-diary t)
  '(org-agenda-start-with-log-mode t)
+ '(org-agenda-tags-todo-honor-ignore-options t)
+ '(org-agenda-todo-ignore-deadlines (quote far))
+ '(org-agenda-todo-ignore-scheduled (quote future))
+ '(org-agenda-todo-ignore-timestamp (quote future))
  '(org-bullets-bullet-list (quote ("◉" "●" "○" "✿" "❀")))
+ '(org-default-priority 68)
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
+ '(org-hierarchical-todo-statistics nil)
  '(org-log-done (quote time))
+ '(org-lowest-priority 68)
+ '(org-priority-start-cycle-with-default nil)
  '(org-startup-with-inline-images t)
  '(org-stuck-projects
    (quote
@@ -399,11 +424,13 @@ layers configuration. You are free to put any user code."
      (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3")
  '(weechat-color-list
-   (unspecified "#272822" "#49483E" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+   (unspecified "#272822" "#49483E" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0"))
+ '(word-wrap t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
