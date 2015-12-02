@@ -362,7 +362,7 @@ layers configuration. You are free to put any user code."
       nil nil))))
  '(org-agenda-files
    (quote
-    ("~/OneDrive/.emacs.d/org/famiglia.org" "~/OneDrive/.emacs.d/org/io.org" "~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
+    ("~/OneDrive/.emacs.d/org/grei.org" "~/OneDrive/.emacs.d/org/famiglia.org" "~/OneDrive/.emacs.d/org/io.org" "~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
  '(org-agenda-include-diary t)
  '(org-agenda-start-with-log-mode t)
  '(org-agenda-tags-todo-honor-ignore-options t)

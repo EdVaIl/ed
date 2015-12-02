@@ -4,22 +4,8 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("Inbox" (filename . "~/OneDrive/.emacs.d/org/inbox.org"))
 ("Tickler" (filename . "~/OneDrive/.emacs.d/org/tickler.org"))
-("To Do" (filename . "~/OneDrive/.emacs.d/org/todo.org"))
+("Io" (filename . "~/OneDrive/.emacs.d/org/io.org"))
+("Famiglia" (filename . "~/OneDrive/.emacs.d/org/famiglia.org"))
+("GREI" (filename . "~/OneDrive/.emacs.d/org/grei.org"))
 ("ALSO Cloud" (filename . "~/OneDrive/.emacs.d/org/also.org"))
-("Reference" (filename . "~/OneDrive/.emacs.d/org/reference.org"))
-("org-capture-last-stored-marker"
- (filename . "~/OneDrive/.emacs.d/org/inbox.org")
- (front-context-string . "** TODO        <")
- (rear-context-string . "st\n- [ ] was???\n")
- (position . 181))
-("org-refile-last-stored"
- (filename . "~/OneDrive/.emacs.d/org/inbox.org")
- (front-context-string . "** TODO        <")
- (rear-context-string . "st\n- [ ] was???\n")
- (position . 181))
-("org-capture-last-stored"
- (filename . "~/OneDrive/.emacs.d/org/inbox.org")
- (front-context-string . "* Checklist\n- [ ")
- (rear-context-string . "Using%20capture\n")
- (position . 83))
-)
+("To Do" (filename . "~/OneDrive/.emacs.d/org/todo.org")))
