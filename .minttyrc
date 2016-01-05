@@ -1,5 +1,5 @@
 BoldCyan=147,224,227
-Transparency=off
+Transparency=high
 CursorType=block
 CursorBlinks=no
 Scrollbar=none
@@ -14,5 +14,7 @@ AllowBlinking=yes
 Term=xterm-256color
 Font=Source Code Pro
 BoldAsFont=yes
-ScrollMod=ctrl
+ScrollMod=off
 BoldAsColour=yes
+Printer=Invia a OneNote 16
+OpaqueWhenFocused=yes
