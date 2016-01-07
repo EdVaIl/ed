@@ -2,10 +2,10 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Inbox" (filename . "~/OneDrive/.emacs.d/org/inbox.org"))
-("Tickler" (filename . "~/OneDrive/.emacs.d/org/tickler.org"))
-("Io" (filename . "~/OneDrive/.emacs.d/org/io.org"))
-("Famiglia" (filename . "~/OneDrive/.emacs.d/org/famiglia.org"))
-("GREI" (filename . "~/OneDrive/.emacs.d/org/grei.org"))
-("ALSO Cloud" (filename . "~/OneDrive/.emacs.d/org/also.org"))
-("To Do" (filename . "~/OneDrive/.emacs.d/org/todo.org")))
+(("Inbox" (filename . "~/Dropbox/.emacs.d/org/inbox.org"))
+("Tickler" (filename . "~/Dropbox/.emacs.d/org/tickler.org"))
+("Io" (filename . "~/Dropbox/.emacs.d/org/io.org"))
+("Famiglia" (filename . "~/Dropbox/.emacs.d/org/famiglia.org"))
+("GREI" (filename . "~/Dropbox/.emacs.d/org/grei.org"))
+("ALSO Cloud" (filename . "~/Dropbox/.emacs.d/org/also.org"))
+("To Do" (filename . "~/Dropbox/.emacs.d/org/todo.org")))

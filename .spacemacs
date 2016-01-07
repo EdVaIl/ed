@@ -34,7 +34,7 @@ values."
      haskell
      html
      javascript
-     ;; markdown
+     markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -226,7 +226,47 @@ layers configuration. You are free to put any user code."
   ;:qQjJkKxXbBmMwWvVzZ         \
                              "))
        (quail-set-keyboard-layout "dvorak")))
-)
+  (require 'org-mobile)
+
+  (org-mobile-pull) ;; run org-mobile-pull at startup
+
+  (defun install-monitor (file secs)
+    (run-with-timer
+     0 secs
+     (lambda (f p)
+       (unless (< p (float-time (time-since (elt (file-attributes f) 5))))
+         (org-mobile-pull)))
+     file secs))
+
+  (install-monitor (file-truename
+                    (concat
+                     (file-name-as-directory org-mobile-directory)
+                     org-mobile-capture-file))
+                   5)
+
+  ;; Do a pull every 5 minutes to circumvent problems with timestamping
+  ;; (ie. dropbox bugs)
+
+  (run-with-timer 0 (* 5 60) 'org-mobile-pull)
+  (defvar org-mobile-push-timer nil
+    "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
+  (defun org-mobile-push-with-delay (secs)
+    (when org-mobile-push-timer
+      (cancel-timer org-mobile-push-timer))
+    (setq org-mobile-push-timer
+          (run-with-idle-timer
+           (* 1 secs) nil 'org-mobile-push)))
+  (add-hook 'after-save-hook 
+            (lambda () 
+              (when (eq major-mode 'org-mode)
+                (dolist (file (org-mobile-files-alist))
+                  (if (string= (file-truename (expand-file-name (car file)))
+                               (file-truename (buffer-file-name)))
+                      (org-mobile-push-with-delay 30)))
+                )))
+  (run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
+
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -239,7 +279,7 @@ layers configuration. You are free to put any user code."
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
- '(bbdb-file "~/OneDrive/.emacs.d/bbdb")
+ '(bbdb-file "~/Dropbox/.emacs.d/bbdb")
  '(cal-tex-24 t)
  '(calendar-latitude 56.959454801)
  '(calendar-longitude 24.237804606)
@@ -292,7 +332,7 @@ layers configuration. You are free to put any user code."
              ((org-agenda-overriding-header "Tickler")
               (org-agenda-files
                (quote
-                ("~/OneDrive/.emacs.d/org/tickler.org")))
+                ("~/Dropbox/.emacs.d/org/tickler.org")))
               (org-agenda-max-entries 1)))
        (agenda ""
                ((org-agenda-span
@@ -303,7 +343,7 @@ layers configuration. You are free to put any user code."
              ((org-agenda-overriding-header "Arrivo (controllato documenti cartacei, registratore, le immagini, OneNote ed e-mail):")
               (org-agenda-files
                (quote
-                ("~/OneDrive/.emacs.d/org/inbox.org")))
+                ("~/Dropbox/.emacs.d/org/inbox.org")))
               (org-agenda-max-entries 1)))
        (tags-todo "@home-BLOCKED=\"t\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions at home:")))
@@ -337,7 +377,7 @@ layers configuration. You are free to put any user code."
                  (quote day)))))
       ((org-agenda-files
         (quote
-         ("~/OneDrive/.emacs.d/org/also.org"))))
+         ("~/Dropbox/.emacs.d/org/also.org"))))
       nil)
      ("w" "Week everywhere"
       ((agenda ""
@@ -354,7 +394,7 @@ layers configuration. You are free to put any user code."
              ((org-agenda-overriding-header "Inbox (check also OneNote and mail):")
               (org-agenda-files
                (quote
-                ("~/OneDrive/.emacs.d/org/inbox.org")))))
+                ("~/Dropbox/.emacs.d/org/inbox.org")))))
        (tags-todo "BLOCKED=\"t\"/WAITING"
                   ((org-agenda-overriding-header "Force:")))
        (tags-todo "SOMEDAY" nil)
@@ -362,8 +402,7 @@ layers configuration. You are free to put any user code."
       nil nil))))
  '(org-agenda-files
    (quote
-    ("~/OneDrive/.emacs.d/org/grei.org" "~/OneDrive/.emacs.d/org/famiglia.org" "~/OneDrive/.emacs.d/org/io.org" "~/OneDrive/.emacs.d/org/inbox.org" "~/OneDrive/.emacs.d/org/tickler.org" "~/OneDrive/.emacs.d/org/todo.org" "~/OneDrive/.emacs.d/org/also.org" "~/OneDrive/.emacs.d/org/reference.org")))
- '(org-agenda-include-diary t)
+    ("~/Dropbox/.emacs.d/org/grei.org" "~/Dropbox/.emacs.d/org/famiglia.org" "~/Dropbox/.emacs.d/org/io.org" "~/Dropbox/.emacs.d/org/inbox.org" "~/Dropbox/.emacs.d/org/tickler.org" "~/Dropbox/.emacs.d/org/todo.org" "~/Dropbox/.emacs.d/org/also.org" "~/Dropbox/.emacs.d/org/reference.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-agenda-tags-todo-honor-ignore-options t)
  '(org-agenda-todo-ignore-deadlines (quote far))
@@ -376,6 +415,7 @@ layers configuration. You are free to put any user code."
  '(org-hierarchical-todo-statistics nil)
  '(org-log-done (quote time))
  '(org-lowest-priority 68)
+ '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
  '(org-startup-with-inline-images t)
  '(org-stuck-projects
