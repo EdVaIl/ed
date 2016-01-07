@@ -39,7 +39,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      syntax-checking
      ;; version-control
      windows-scripts
@@ -212,7 +212,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers relative
+   dotspacemacs-line-numbers `relative
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -457,11 +457,11 @@ layers configuration. You are free to put any user code."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time) t)
+ '(org-log-done (quote time))
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t t)
+ '(org-startup-with-inline-images t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
@@ -480,7 +480,7 @@ layers configuration. You are free to put any user code."
      (type "WAITING(w!)" "CANCELED(c)"))))
  '(package-selected-packages
    (quote
-    (mmm-mode markdown-toc markdown-mode gh-md zeal-at-point web-mode web-beautify toc-org tagedit smeargle slim-mode shm scss-mode sass-mode rainbow-mode rainbow-identifiers powershell orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets magit-gitflow magit-gh-pulls less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode htmlize hindent helm-gitignore helm-flyspell helm-dash helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist flycheck-pos-tip flycheck-haskell flycheck evil-magit emmet-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company coffee-mode cmm-mode bbdb auto-yasnippet auto-dictionary ac-ispell zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (package-build bind-key evil bind-map mmm-mode markdown-toc markdown-mode gh-md zeal-at-point web-mode web-beautify toc-org tagedit smeargle slim-mode shm scss-mode sass-mode rainbow-mode rainbow-identifiers powershell orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets magit-gitflow magit-gh-pulls less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode htmlize hindent helm-gitignore helm-flyspell helm-dash helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist flycheck-pos-tip flycheck-haskell flycheck evil-magit emmet-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company coffee-mode cmm-mode bbdb auto-yasnippet auto-dictionary ac-ispell zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values (quote ((mode@ . org))))
