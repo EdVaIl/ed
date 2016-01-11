@@ -24,7 +24,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     better-defaults
      colors
      dash
      emacs-lisp
@@ -41,7 +41,7 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
      windows-scripts
      )
    ;; List of additional packages that will be installed without being
