@@ -200,11 +200,11 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 80
+   dotspacemacs-active-transparency 90
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 75
+   dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
@@ -272,46 +272,6 @@ layers configuration. You are free to put any user code."
   ;:qQjJkKxXbBmMwWvVzZ         \
                              "))
        (quail-set-keyboard-layout "dvorak")))
-  (require 'org-mobile)
-
-  (org-mobile-pull) ;; run org-mobile-pull at startup
-
-  (defun install-monitor (file secs)
-    (run-with-timer
-     0 secs
-     (lambda (f p)
-       (unless (< p (float-time (time-since (elt (file-attributes f) 5))))
-         (org-mobile-pull)))
-     file secs))
-
-  (install-monitor (file-truename
-                    (concat
-                     (file-name-as-directory org-mobile-directory)
-                     org-mobile-capture-file))
-                   5)
-
-  ;; Do a pull every 5 minutes to circumvent problems with timestamping
-  ;; (ie. dropbox bugs)
-
-  (run-with-timer 0 (* 5 60) 'org-mobile-pull)
-  (defvar org-mobile-push-timer nil
-    "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
-  (defun org-mobile-push-with-delay (secs)
-    (when org-mobile-push-timer
-      (cancel-timer org-mobile-push-timer))
-    (setq org-mobile-push-timer
-          (run-with-idle-timer
-           (* 1 secs) nil 'org-mobile-push)))
-  (add-hook 'after-save-hook 
-            (lambda () 
-              (when (eq major-mode 'org-mode)
-                (dolist (file (org-mobile-files-alist))
-                  (if (string= (file-truename (expand-file-name (car file)))
-                               (file-truename (buffer-file-name)))
-                      (org-mobile-push-with-delay 30)))
-                )))
-  (run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
