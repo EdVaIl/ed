@@ -43,6 +43,7 @@ values."
      syntax-checking
      version-control
      windows-scripts
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -325,7 +326,10 @@ layers configuration. You are free to put any user code."
  '(hl-fg-colors
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
+ '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
+ '(json-reformat:indent-width 2)
+ '(magit-commit-arguments (quote ("--all")))
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
@@ -419,11 +423,11 @@ layers configuration. You are free to put any user code."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time))
+ '(org-log-done (quote time) t)
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t)
+ '(org-startup-with-inline-images t t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
@@ -474,8 +478,29 @@ layers configuration. You are free to put any user code."
      (340 . "#94BFF3")
      (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3")
+ '(web-mode-attr-indent-offset 2)
+ '(web-mode-auto-close-style 2)
+ '(web-mode-enable-auto-closing t)
+ '(web-mode-enable-auto-expanding t)
  '(web-mode-enable-auto-indentation t)
+ '(web-mode-enable-auto-opening t)
+ '(web-mode-enable-auto-pairing t)
+ '(web-mode-enable-auto-quoting t)
+ '(web-mode-enable-block-face t)
+ '(web-mode-enable-comment-interpolation t)
+ '(web-mode-enable-css-colorization t)
+ '(web-mode-enable-current-column-highlight t)
+ '(web-mode-enable-current-element-highlight t)
+ '(web-mode-enable-element-content-fontification t)
+ '(web-mode-enable-element-tag-fontification t)
+ '(web-mode-enable-engine-detection t)
+ '(web-mode-enable-html-entities-fontification t)
+ '(web-mode-enable-inlays t)
+ '(web-mode-enable-sql-detection t)
  '(web-mode-markup-indent-offset 2)
+ '(web-mode-script-padding 2)
+ '(web-mode-sql-indent-offset 2)
+ '(web-mode-style-padding 2)
  '(weechat-color-list
    (unspecified "#272822" "#49483E" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0"))
  '(word-wrap t))
