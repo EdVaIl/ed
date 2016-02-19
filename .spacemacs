@@ -118,7 +118,7 @@ values."
                                :size 19
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.3)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -300,7 +300,7 @@ layers configuration. You are free to put any user code."
  '(display-time-mode t)
  '(evil-escape-key-sequence "hc")
  '(evil-escape-unordered-key-sequence t)
- '(fancy-battery-show-percentage t)
+ '(fancy-battery-show-percentage t t)
  '(global-auto-revert-mode t)
  '(highlight-changes-colors ("#FD5FF0" "#AE81FF"))
  '(highlight-symbol-colors
@@ -419,11 +419,11 @@ layers configuration. You are free to put any user code."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time))
+ '(org-log-done (quote time) t)
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t)
+ '(org-startup-with-inline-images t t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
@@ -442,7 +442,7 @@ layers configuration. You are free to put any user code."
      (type "WAITING(w!)" "CANCELED(c)"))))
  '(package-selected-packages
    (quote
-    (ghc smartparens haskell-mode helm helm-core magit package-build bind-key evil bind-map mmm-mode markdown-toc markdown-mode gh-md zeal-at-point web-mode web-beautify toc-org tagedit smeargle slim-mode shm scss-mode sass-mode rainbow-mode rainbow-identifiers powershell orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets magit-gitflow magit-gh-pulls less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode htmlize hindent helm-gitignore helm-flyspell helm-dash helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist flycheck-pos-tip flycheck-haskell flycheck evil-magit emmet-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company coffee-mode cmm-mode bbdb auto-yasnippet auto-dictionary ac-ispell zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter diff-hl ghc smartparens haskell-mode helm helm-core magit package-build bind-key evil bind-map mmm-mode markdown-toc markdown-mode gh-md zeal-at-point web-mode web-beautify toc-org tagedit smeargle slim-mode shm scss-mode sass-mode rainbow-mode rainbow-identifiers powershell orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets magit-gitflow magit-gh-pulls less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode htmlize hindent helm-gitignore helm-flyspell helm-dash helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist flycheck-pos-tip flycheck-haskell flycheck evil-magit emmet-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company coffee-mode cmm-mode bbdb auto-yasnippet auto-dictionary ac-ispell zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(powerline-default-separator (quote wave))
