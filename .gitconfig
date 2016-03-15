@@ -4,4 +4,4 @@
 [push]
 	default = simple
 [credential]
-	helper = cache --timeout=100000
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring

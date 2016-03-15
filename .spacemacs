@@ -39,6 +39,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
+     shell-scripts
      ;; spell-checking
      syntax-checking
      version-control
@@ -119,7 +120,7 @@ values."
                                :size 19
                                :weight normal
                                :width normal
-                               :powerline-scale 1.3)
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -225,7 +226,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -287,9 +288,11 @@ layers configuration. You are free to put any user code."
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(bbdb-file "~/Dropbox/.emacs.d/bbdb")
+ '(blink-cursor-mode nil)
  '(cal-tex-24 t)
  '(calendar-latitude 56.959454801)
  '(calendar-longitude 24.237804606)
+ '(column-number-mode t)
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -301,7 +304,7 @@ layers configuration. You are free to put any user code."
  '(display-time-mode t)
  '(evil-escape-key-sequence "hc")
  '(evil-escape-unordered-key-sequence t)
- '(fancy-battery-show-percentage t t)
+ '(fancy-battery-show-percentage t)
  '(global-auto-revert-mode t)
  '(highlight-changes-colors ("#FD5FF0" "#AE81FF"))
  '(highlight-symbol-colors
@@ -331,6 +334,8 @@ layers configuration. You are free to put any user code."
  '(json-reformat:indent-width 2)
  '(magit-commit-arguments (quote ("--all")))
  '(magit-diff-use-overlays nil)
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(magit-tag-arguments (quote ("--annotate")))
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
@@ -455,6 +460,7 @@ layers configuration. You are free to put any user code."
  '(standard-indent 2)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
+ '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
@@ -508,6 +514,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F" :family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 151 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
