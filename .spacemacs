@@ -39,6 +39,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
+     shell-scripts
      ;; spell-checking
      syntax-checking
      version-control
@@ -119,7 +120,7 @@ values."
                                :size 19
                                :weight normal
                                :width normal
-                               :powerline-scale 1.3)
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -225,7 +226,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -287,9 +288,11 @@ layers configuration. You are free to put any user code."
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(bbdb-file "~/Dropbox/.emacs.d/bbdb")
+ '(blink-cursor-mode nil)
  '(cal-tex-24 t)
  '(calendar-latitude 56.959454801)
  '(calendar-longitude 24.237804606)
+ '(column-number-mode t)
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -301,7 +304,7 @@ layers configuration. You are free to put any user code."
  '(display-time-mode t)
  '(evil-escape-key-sequence "hc")
  '(evil-escape-unordered-key-sequence t)
- '(fancy-battery-show-percentage t t)
+ '(fancy-battery-show-percentage t)
  '(global-auto-revert-mode t)
  '(highlight-changes-colors ("#FD5FF0" "#AE81FF"))
  '(highlight-symbol-colors
@@ -331,6 +334,8 @@ layers configuration. You are free to put any user code."
  '(json-reformat:indent-width 2)
  '(magit-commit-arguments (quote ("--all")))
  '(magit-diff-use-overlays nil)
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(magit-tag-arguments (quote ("--annotate")))
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
@@ -449,13 +454,13 @@ layers configuration. You are free to put any user code."
     (git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter diff-hl ghc smartparens haskell-mode helm helm-core magit package-build bind-key evil bind-map mmm-mode markdown-toc markdown-mode gh-md zeal-at-point web-mode web-beautify toc-org tagedit smeargle slim-mode shm scss-mode sass-mode rainbow-mode rainbow-identifiers powershell orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets magit-gitflow magit-gh-pulls less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode htmlize hindent helm-gitignore helm-flyspell helm-dash helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist flycheck-pos-tip flycheck-haskell flycheck evil-magit emmet-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company coffee-mode cmm-mode bbdb auto-yasnippet auto-dictionary ac-ispell zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
- '(powerline-default-separator (quote wave))
  '(safe-local-variable-values (quote ((mode@ . org))))
  '(shell-file-name "bash")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(standard-indent 2)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
+ '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
@@ -509,6 +514,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F" :family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 151 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
