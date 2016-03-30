@@ -22,7 +22,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = defaultConfig {
   terminal    = "urxvt"
   , modMask     = mod4Mask
-  , borderWidth = 1
+  , borderWidth = 0
 }
         `additionalKeysP`
         [("<XF86MonBrightnessUp>", spawn "xbacklight +1")
