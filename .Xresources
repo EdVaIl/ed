@@ -6,4 +6,4 @@
 *URxvt*keysym.S-F1:	\033[1;2P
 *URxvt*keysym.S-F2:	\033[1;2Q
 *URxvt*scrollBar:   false
-!Xft.dpi:           120
+Xft.dpi:           120
