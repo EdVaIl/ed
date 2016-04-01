@@ -2,17 +2,12 @@ Config {
 
    -- appearance
    -- font = "-*-*-*-*-*-*-20-*-*-*-*-*-*-*"
-     font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
-   , bgColor =      "black"
-   , fgColor =      "#646464"
-   , position =     Top
-   , border =       BottomB
-   , borderColor =  "#646464"
+     font =  "xft:Source Code Pro:Semibold:pixelsize=18"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%battery% | %coretemp% | %memory% | %dynnetwork% | %multicpu% }{ %RIX% | %date% || %kbd% "
+   , template = "%battery% | %memory% | %dynnetwork% | %StdinReader% }{ %EVRA% | %date% || %kbd% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,8 +34,10 @@ Config {
    , commands = 
 
         -- weather monitor
-        [ Run Weather "RIX" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        [ Run Weather "EVRA" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
+
+        , Run StdinReader
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
@@ -51,24 +48,6 @@ Config {
                              , "--high"     , "darkred"
                              ] 10
 
-        -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "C(<total0> <total1> <total2> <total3>)%"
-                             , "--Low"      , "50"         -- units: %
-                             , "--High"     , "85"         -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
-                             ] 10
-
-        -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
-                             , "--Low"      , "70"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
-                             ] 50
-                          
         -- memory usage monitor
         , Run Memory         [ "--template" ,"Mem: <usedratio>%"
                              , "--Low"      , "20"        -- units: %
@@ -101,7 +80,7 @@ Config {
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+                             , ("ru"         , "<fc=#8B0000>RU</fc>")
                              ]
         ]
    }

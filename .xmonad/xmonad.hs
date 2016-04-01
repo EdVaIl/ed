@@ -5,6 +5,7 @@ import Graphics.X11.ExtraTypes.XF86
 import XMonad.Util.EZConfig  
 import Data.Monoid
 import System.Exit
+import XMonad.Hooks.FadeInactive
 
 -- The main function.
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
@@ -13,7 +14,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 myBar = "xmobar"
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+myPP = xmobarPP
 
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
@@ -22,7 +23,8 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = defaultConfig {
   terminal    = "urxvt"
   , modMask     = mod4Mask
-  , borderWidth = 0
+  , borderWidth = 1
+  , logHook = myLogHook
 }
         `additionalKeysP`
         [("<XF86MonBrightnessUp>", spawn "xbacklight +1")
@@ -30,4 +32,9 @@ myConfig = defaultConfig {
         ,("<XF86AudioRaiseVolume>", spawn "amixer set Master 1+ unmute")
         ,("<XF86AudioLowerVolume>", spawn "amixer set Master 1- unmute")
         ,("<XF86AudioMute>", spawn "amixer set Master toggle")
+        ,((mod4Mask .|. shiftMask, xK_z), spawn "dm-tool lock")
         ]
+
+myLogHook :: X ()
+myLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 0.8
