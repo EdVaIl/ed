@@ -1,41 +1,42 @@
-Config { 
-     font             = "xft:Source Code Pro:Medium:pixelsize=18"
-   , lowerOnStart     = True    -- send to bottom of window stack on start
-   , hideOnStart      = False   -- start with window unmapped (hidden)
-   , allDesktops      = True    -- show on all desktops
-   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
-   , pickBroadest     = False   -- choose widest display (multi-monitor)
-   , persistent       = True    -- enable/disable hiding (True = disabled)
-   , sepChar          =  "%"   -- delineator between plugin names and straight text
-   , alignSep         = "}{"  -- separator between left-right alignment
-   , commands = 
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
-                             , "--High"     , "90"        -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
-                             ] 10
-        , Run Battery        [ "--template" , "A <left> <timeleft>"
-                             , "--low"      , "darkred"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkgreen"
-                             ] 50
-        , Run TopMem         [] 50
-        , Run TopProc        [] 50
-        , Run StdinReader
-        -- , Run Volume "default" "Master" [] 10
-        , Run Wireless "wlp4s0" ["-t", "W <quality>"] 30
-        , Run Brightness     [ "-t", "B <percent>"
-                             , "--", "-D", "intel_backlight"] 10
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("ru"         , "<fc=#8B0000>RU</fc>")
-                             ]
-        , Run BufferedPipeReader "bpr"
-              [ (  0, False, "/tmp/xmobar_window"  )
-              , ( 15,  True, "/tmp/xmobar_status"  )
-              ]
-        ]
-   , template = "%kbd%|%bright%|%default:Master%|%StdinReader%}{%memory%|%topmem%|%top%|%battery%|%wlp4s0wi%|%EVRA%|%date%|"
+Config { font             = "xft:Source Code Pro:Medium:pixelsize=18"
+       , alpha            = 204
+       , commands = [ Run Kbd                [ ("us(dvorak)" , "<fc=#008B00>DV</fc>")
+                                             , ("ru"         , "<fc=#8B0000>RU</fc>")
+                                             ]
+                    , Run Brightness         [ "-t", "B <percent>"
+                                             , "--", "-D", "intel_backlight"
+                                             ] 10
+                    , Run StdinReader
+                    , Run TopProc            [] 50
+                    , Run TopMem             [] 50
+                    , Run Memory             [ "--template" ,"Mem: <usedratio>%"
+                                             , "--Low"      , "20"        -- units: %
+                                             , "--High"     , "90"        -- units: %
+                                             , "--low"      , "darkgreen"
+                                             , "--normal"   , "darkorange"
+                                             , "--high"     , "darkred"
+                                             ] 50
+                    , Run Battery            [ "--template" , "A<acstatus>"
+                                             , "--low"      , "darkred"
+                                             , "--normal"   , "darkorange"
+                                             , "--high"     , "darkgreen"
+                                             , "--", "-o"   , " <left> <timeleft>"
+                                                   , "-O"   , "C <fc=#dAA520><left> <timeleft></fc>"
+                                                   , "-i"   , "C <fc=#006000><left></fc>"
+                                             ] 50
+                    , Run Wireless           "wlp4s0"
+                                             ["-t"        , "W <quality>"
+                                             , "--low"    , "darkred"
+                                             , "--normal" , "darkorange"
+                                             , "--high"   , "darkgreen"
+                                             ] 50
+                    , Run Weather            "EVRA" ["-t", "<skyCondition> <fc=#4682B4><tempC></fc>° <fc=#4682B4><rh></fc>% <fc=#4682B4><pressure></fc>hPa"] 100
+                    , Run Date               "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+                    -- , Run Volume             "default" "Master" [] 10
+                    -- , Run BufferedPipeReader "bpr"
+                    --                          [ (  0, False, "/tmp/xmobar_window"  )
+                    --                          , ( 15,  True, "/tmp/xmobar_status"  )
+                    --                          ] 10
+                    ]
+       , template = "%kbd%|%bright%| %StdinReader%}{%top%|%topmem%|%memory%|%battery%|%wlp4s0wi%|%EVRA%|%date%"
 }
