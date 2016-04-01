@@ -1,8 +1,8 @@
 *URxvt*background:   rgba:0000/1111/2222/bbbb
 *URxvt*foreground:   white
 *URxvt*depth:        32
-*URxvt*font:         xft:Source Code Pro:pixelsize=16:style=Regular
-*URxvt*boldFont:     xft:Source Code Pro:pixelsize=16:style=Bold
+*URxvt*font:         xft:Source Code Pro:size=10:style=Regular
+*URxvt*boldFont:     xft:Source Code Pro:size=10:style=Bold
 *URxvt*keysym.S-F1:	 \033[1;2P
 *URxvt*keysym.S-F2:	 \033[1;2Q
 *URxvt*keysym.CS-F2: \033[1;6Q
