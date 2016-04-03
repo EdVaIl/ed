@@ -1,10 +1,7 @@
 -- Imports.
 import XMonad
 import XMonad.Hooks.DynamicLog
-import Graphics.X11.ExtraTypes.XF86  
-import XMonad.Util.EZConfig  
-import Data.Monoid
-import System.Exit
+import XMonad.Util.EZConfig
 import XMonad.Hooks.FadeInactive
 
 -- The main function.
@@ -23,16 +20,15 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = defaultConfig {
   terminal    = "urxvt"
   , modMask     = mod4Mask
-  , borderWidth = 1
+  , borderWidth = 0
   , logHook = myLogHook
 }
         `additionalKeysP`
-        [("<XF86MonBrightnessUp>", spawn "xbacklight +1")
-        ,("<XF86MonBrightnessDown>", spawn "xbacklight -1")
-        ,("<XF86AudioRaiseVolume>", spawn "amixer set Master 1+ unmute")
-        ,("<XF86AudioLowerVolume>", spawn "amixer set Master 1- unmute")
+        [("<XF86MonBrightnessUp>", spawn "xbacklight +5")
+        ,("<XF86MonBrightnessDown>", spawn "xbacklight -5")
+        ,("<XF86AudioRaiseVolume>", spawn "amixer set Master 2+ unmute")
+        ,("<XF86AudioLowerVolume>", spawn "amixer set Master 2- unmute")
         ,("<XF86AudioMute>", spawn "amixer set Master toggle")
-        ,((mod4Mask .|. shiftMask, xK_z), spawn "dm-tool lock")
         ]
 
 myLogHook :: X ()
