@@ -1,42 +1,42 @@
-Config { font             = "xft:Source Code Pro:Medium:pixelsize=18"
+Config { font             = "xft:Source Code Pro:Medium:size=9"
        , alpha            = 204
-       , commands = [ Run Kbd                [ ("us(dvorak)" , "<fc=#008B00>DV</fc>")
-                                             , ("ru"         , "<fc=#8B0000>RU</fc>")
+       , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=#008B00>DV</fc>")
+                                             , ("ru"        , "<fc=#8B0000>RU</fc>")
                                              ]
-                    , Run Brightness         [ "-t", "B <percent>"
+                    , Run Brightness         [ "-t", "<percent>%я"
                                              , "--", "-D", "intel_backlight"
                                              ] 10
                     , Run StdinReader
-                    , Run TopProc            [] 50
-                    , Run TopMem             [] 50
-                    , Run Memory             [ "--template" ,"Mem: <usedratio>%"
-                                             , "--Low"      , "20"        -- units: %
-                                             , "--High"     , "90"        -- units: %
+                    , Run TopProc            [ "-t", "<cpu1>%<name1> <mem1><mname1>"
+                                             ] 20
+                    , Run Memory             [ "-t", "<used>M"
+                                             , "-L"         , "2048"
+                                             , "-H"         , "4096"
                                              , "--low"      , "darkgreen"
                                              , "--normal"   , "darkorange"
                                              , "--high"     , "darkred"
                                              ] 50
-                    , Run Battery            [ "--template" , "A<acstatus>"
+                    , Run Battery            [ "--template" , "<acstatus>"
                                              , "--low"      , "darkred"
                                              , "--normal"   , "darkorange"
                                              , "--high"     , "darkgreen"
-                                             , "--", "-o"   , " <left> <timeleft>"
-                                                   , "-O"   , "C <fc=#dAA520><left> <timeleft></fc>"
-                                                   , "-i"   , "C <fc=#006000><left></fc>"
+                                             , "--", "-o"   , "<left>%б о<timeleft>"
+                                                   , "-O"   , "<fc=#dAA520><left></fc>%з о<timeleft>"
+                                                   , "-i"   , "<fc=#006000><left></fc>%з"
                                              ] 50
                     , Run Wireless           "wlp4s0"
-                                             ["-t"        , "W <quality>"
+                                             ["-t"        , "<quality>%w"
                                              , "--low"    , "darkred"
                                              , "--normal" , "darkorange"
                                              , "--high"   , "darkgreen"
                                              ] 50
-                    , Run Weather            "EVRA" ["-t", "<skyCondition> <fc=#4682B4><tempC></fc>° <fc=#4682B4><rh></fc>% <fc=#4682B4><pressure></fc>hPa"] 100
+                    , Run Weather            "EVRA" ["-t", "<fc=#4682B4><tempC></fc>° <skyCondition> <fc=#4682B4><rh></fc>% <fc=#4682B4><pressure></fc>hPa"] 100
                     , Run Date               "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
-                    -- , Run Volume             "default" "Master" [] 10
+-- , Run Volume             "default" "Master" [] 10
                     -- , Run BufferedPipeReader "bpr"
                     --                          [ (  0, False, "/tmp/xmobar_window"  )
                     --                          , ( 15,  True, "/tmp/xmobar_status"  )
                     --                          ] 10
                     ]
-       , template = "%kbd%|%bright%| %StdinReader%}{%top%|%topmem%|%memory%|%battery%|%wlp4s0wi%|%EVRA%|%date%"
+       , template = "%kbd% %bright% %StdinReader%}{%top% %memory% %battery% %wlp4s0wi% %EVRA% %date%"
 }
