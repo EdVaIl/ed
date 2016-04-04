@@ -17,19 +17,19 @@ myPP = xmobarPP
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Main configuration, override the defaults to your liking.
-myConfig = defaultConfig {
-  terminal    = "urxvt"
+myConfig = defaultConfig
+  { terminal    = "urxvt"
   , modMask     = mod4Mask
   , borderWidth = 0
   , logHook = myLogHook
-}
-        `additionalKeysP`
-        [("<XF86MonBrightnessUp>", spawn "xbacklight +5")
-        ,("<XF86MonBrightnessDown>", spawn "xbacklight -5")
-        ,("<XF86AudioRaiseVolume>", spawn "amixer set Master 2+ unmute")
-        ,("<XF86AudioLowerVolume>", spawn "amixer set Master 2- unmute")
-        ,("<XF86AudioMute>", spawn "amixer set Master toggle")
-        ]
+  } `additionalKeysP`
+  [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+  , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
+  , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 2+ unmute")
+  , ("<XF86AudioLowerVolume>", spawn "amixer set Master 2- unmute")
+  , ("<XF86AudioMute>", spawn "amixer set Master toggle")
+  ]
 
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
