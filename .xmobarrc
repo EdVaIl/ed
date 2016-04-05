@@ -1,5 +1,5 @@
 Config { font             = "xft:Source Code Pro:Medium:size=9"
-       , alpha            = 204
+       , alpha            = 153
        , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=#008B00>DV</fc>")
                                              , ("ru"        , "<fc=#8B0000>RU</fc>")
                                              ]
@@ -19,7 +19,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                     , Run Battery            [ "--template" , "<acstatus>"
                                              , "--low"      , "darkred"
                                              , "--normal"   , "darkorange"
-                                             , "--high"     , "darkgreen"
+                                             , "--high"     , "lightgreen"
                                              , "--", "-o"   , "<left>%б о<timeleft>"
                                                    , "-O"   , "<fc=#dAA520><left></fc>%з о<timeleft>"
                                                    , "-i"   , "<fc=#006000><left></fc>%з"
@@ -28,7 +28,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                                              ["-t"        , "<quality>%w"
                                              , "--low"    , "darkred"
                                              , "--normal" , "darkorange"
-                                             , "--high"   , "darkgreen"
+                                             , "--high"   , "lightgreen"
                                              ] 50
                     , Run Weather            "EVRA" ["-t", "<fc=#4682B4><tempC></fc>° <skyCondition> <fc=#4682B4><rh></fc>% <fc=#4682B4><pressure></fc>hPa"] 100
                     , Run Date               "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
