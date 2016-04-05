@@ -26,7 +26,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                                              ] 50
                     , Run Wireless           "wlp4s0"
                                              ["-t"        , "<quality>%w"
-                                             , "--low"    , "darkred"
+                                             , "--low"    , "red"
                                              , "--normal" , "darkorange"
                                              , "--high"   , "lightgreen"
                                              ] 50

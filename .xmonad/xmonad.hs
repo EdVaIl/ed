@@ -2,14 +2,25 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Hooks.FadeInactive
+import XMonad.Util.WorkspaceCompare
 
 main :: IO ()
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
   
-myPP = xmobarPP { ppCurrent = xmobarColor "yellow" ""
-                , ppTitle = xmobarColor "green" "" . shorten 120
-                , ppSep = " | "
+myPP = xmobarPP { ppCurrent = xmobarColor "green" ""
+                , ppTitle   = xmobarColor "green"  "" . shorten 120
+                , ppVisible = xmobarColor "yellow" ""
+                , ppSort    = getSortByXineramaPhysicalRule
+                , ppWsSep   = "" 
+                , ppSep     = " "
+                , ppLayout   = xmobarColor "white" "" .
+                               (\ x -> case x of "Tall"        -> "[]="
+                                                 "Mirror Tall" -> "TTT"
+                                                 "Full"        -> "[ ]"
+                                                 _             -> x
+                               )
                 }
+
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myConfig = defaultConfig
