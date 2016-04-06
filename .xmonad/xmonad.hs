@@ -12,10 +12,10 @@ myPP = xmobarPP { ppCurrent = xmobarColor "green" ""
                 , ppVisible = xmobarColor "yellow" ""
                 , ppSort    = getSortByXineramaPhysicalRule
                 , ppWsSep   = "" 
-                , ppSep     = " "
+                , ppSep     = ""
                 , ppLayout   = xmobarColor "white" "" .
-                               (\ x -> case x of "Tall"        -> "│├─"
-                                                 "Mirror Tall" -> "└┬┘"
+                               (\ x -> case x of "Tall"        -> "│├┤"
+                                                 "Mirror Tall" -> "├┬┤"
                                                  "Full"        -> "│ │"
                                                  _             -> x
                                )
