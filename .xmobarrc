@@ -1,7 +1,7 @@
 Config { font             = "xft:Source Code Pro:Medium:size=9"
        , alpha            = 153
-       , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=#008B00>DV</fc>")
-                                             , ("ru"        , "<fc=#8B0000>RU</fc>")
+       , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=lightgreen>DV</fc>")
+                                             , ("ru"        , "<fc=red>RU</fc>")
                                              ]
                     , Run Brightness         [ "-t", "<percent>%я"
                                              , "--", "-D", "intel_backlight"
@@ -12,7 +12,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                     , Run Memory             [ "-t", "<used>M"
                                              , "-L"         , "2048"
                                              , "-H"         , "4096"
-                                             , "--low"      , "darkgreen"
+                                             , "--low"      , "lightgreen"
                                              , "--normal"   , "darkorange"
                                              , "--high"     , "darkred"
                                              ] 50

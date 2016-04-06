@@ -14,9 +14,9 @@ myPP = xmobarPP { ppCurrent = xmobarColor "green" ""
                 , ppWsSep   = "" 
                 , ppSep     = " "
                 , ppLayout   = xmobarColor "white" "" .
-                               (\ x -> case x of "Tall"        -> "[]="
-                                                 "Mirror Tall" -> "TTT"
-                                                 "Full"        -> "[ ]"
+                               (\ x -> case x of "Tall"        -> "│├─"
+                                                 "Mirror Tall" -> "└┬┘"
+                                                 "Full"        -> "│ │"
                                                  _             -> x
                                )
                 }
@@ -31,11 +31,13 @@ myConfig = defaultConfig
            }
            `additionalKeysP`
            [ ("M-S-z",                   spawn "xscreensaver-command -lock")
+             
+           , ("XF86AudioPlay",           spawn "ncmpcpp toggle")
+           , ("<XF86AudioMute>",         spawn "pamixer --toggle-mute")
+           , ("<XF86AudioLowerVolume>",  spawn "pamixer --decrease 2 --unmute")
+           , ("<XF86AudioRaiseVolume>",  spawn "pamixer --increase 2 --unmute")
            , ("<XF86MonBrightnessUp>",   spawn "xbacklight +5")
            , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
-           , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 2+ unmute")
-           , ("<XF86AudioLowerVolume>",  spawn "amixer set Master 2- unmute")
-           , ("<XF86AudioMute>",         spawn "amixer set Master toggle")
            ]
 
 myLogHook :: X ()
