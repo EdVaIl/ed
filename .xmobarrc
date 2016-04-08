@@ -14,7 +14,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                                              , "-H"         , "4096"
                                              , "--low"      , "lightgreen"
                                              , "--normal"   , "darkorange"
-                                             , "--high"     , "darkred"
+                                             , "--high"     , "red"
                                              ] 50
                     , Run Battery            [ "--template" , "<acstatus>"
                                              , "--low"      , "darkred"
