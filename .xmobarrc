@@ -1,4 +1,4 @@
-Config { font             = "xft:Source Code Pro:Medium:size=9"
+Config { font             = "xft:Monospace:size=9"
        , alpha            = 153
        , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=lightgreen>DV</fc>")
                                              , ("ru"        , "<fc=red>RU</fc>")
