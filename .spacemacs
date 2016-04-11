@@ -289,6 +289,7 @@ layers configuration. You are free to put any user code."
    [default default default italic underline success warning error])
  '(bbdb-file "~/Dropbox/.emacs.d/bbdb")
  '(blink-cursor-mode nil)
+ '(browse-url-browser-function (quote browse-url-default-browser))
  '(cal-tex-24 t)
  '(calendar-latitude 56.959454801)
  '(calendar-longitude 24.237804606)
@@ -429,7 +430,7 @@ layers configuration. You are free to put any user code."
  '(web-mode-enable-auto-expanding t)
  '(web-mode-enable-auto-indentation t)
  '(web-mode-enable-auto-opening t)
- '(web-mode-enable-auto-pairing t)
+ '(web-mode-enable-auto-pairing t t)
  '(web-mode-enable-auto-quoting t)
  '(web-mode-enable-block-face t)
  '(web-mode-enable-comment-interpolation t)
@@ -447,3 +448,10 @@ layers configuration. You are free to put any user code."
  '(web-mode-sql-indent-offset 2)
  '(web-mode-style-padding 2)
  '(word-wrap t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

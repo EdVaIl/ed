@@ -6,32 +6,29 @@ import XMonad.Util.WorkspaceCompare
 
 main :: IO ()
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
-  
-myPP = xmobarPP { ppCurrent = xmobarColor "green" ""
-                , ppTitle   = xmobarColor "green"  "" . shorten 120
+  where
+    myPP = xmobarPP { ppCurrent = xmobarColor "green" ""
+                , ppTitle   = xmobarColor "green"  "" . shorten 60
                 , ppVisible = xmobarColor "yellow" ""
                 , ppSort    = getSortByXineramaPhysicalRule
-                , ppWsSep   = "" 
+                , ppWsSep   = ""
                 , ppSep     = ""
-                , ppLayout   = xmobarColor "white" "" .
-                               (\ x -> case x of "Tall"        -> "│├┤"
-                                                 "Mirror Tall" -> "├┬┤"
-                                                 "Full"        -> "│ │"
-                                                 _             -> x
-                               )
+                , ppLayout  = xmobarColor "white" "" .
+                              (\ x -> case x of "Tall"        -> "│├┤"
+                                                "Mirror Tall" -> "├┬┤"
+                                                "Full"        -> "│ │"
+                                                _             -> x
+                              )
                 }
-
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
-myConfig = defaultConfig
-           { terminal    = "urxvt"
+    toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+    myConfig = def
+           { terminal    = "urxvtc"
            , modMask     = mod4Mask
            , borderWidth = 0
            , logHook = myLogHook
            }
            `additionalKeysP`
            [ ("M-S-z",                   spawn "xscreensaver-command -lock")
-             
            , ("XF86AudioPlay",           spawn "ncmpcpp toggle")
            , ("<XF86AudioMute>",         spawn "pamixer --toggle-mute")
            , ("<XF86AudioLowerVolume>",  spawn "pamixer --decrease 2 --unmute")
@@ -39,7 +36,5 @@ myConfig = defaultConfig
            , ("<XF86MonBrightnessUp>",   spawn "xbacklight +5")
            , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
            ]
-
-myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.9
+    myLogHook = fadeInactiveLogHook fadeAmount
+      where fadeAmount = 0.8
