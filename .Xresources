@@ -1,8 +1,9 @@
 !!Xft.dpi:             120
-!!*URxvt*font:         xft:Source Code Pro:size=9
-*URxvt*letterSpace:   -1
-*URxvt*font:         xft:Monospace:size=9
-*URxvt*boldfont:     xft:Monospace-Bold=9
+!!*URxvt*font:         xft:Monospace:size=9
+!!*URxvt*boldfont:     xft:Monospace-Bold=9
+!!*URxvt*letterSpace:   -1
+*URxvt*font:         xft:Source Code Pro:size=11
+*URxvt*boldfont:     xft:Source Code Pro:Bold:size=11
 *URxvt*background:   rgba:0000/1111/2222/cccc
 *URxvt*foreground:   white
 *URxvt*depth:        32
@@ -10,7 +11,7 @@
 *URxvt*keysym.S-F2:	 \033[1;2Q
 *URxvt*keysym.CS-F2: \033[1;6Q
 *URxvt*scrollBar:    false
-*URxvt*perl-ext-common: default,matcher
+*URxvt*perl-ext-common: default,matcher,selection-to-clipboard
 *URxvt*url-launcher: /usr/bin/xdg-open
 *URxvt*matcher.button: 1
 *URxvt*matcher.rend.0: Uline Bold fg5
