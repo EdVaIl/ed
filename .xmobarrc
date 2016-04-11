@@ -1,4 +1,4 @@
-Config { font             = "xft:Source Code Pro:Medium:size=9"
+Config { font             = "xft:Source Code Pro:size=11"
        , alpha            = 153
        , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=lightgreen>DV</fc>")
                                              , ("ru"        , "<fc=red>RU</fc>")
@@ -14,7 +14,7 @@ Config { font             = "xft:Source Code Pro:Medium:size=9"
                                              , "-H"         , "4096"
                                              , "--low"      , "lightgreen"
                                              , "--normal"   , "darkorange"
-                                             , "--high"     , "darkred"
+                                             , "--high"     , "red"
                                              ] 50
                     , Run Battery            [ "--template" , "<acstatus>"
                                              , "--low"      , "red"
