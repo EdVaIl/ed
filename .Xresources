@@ -1,10 +1,10 @@
-Xft.dpi:             144
-!!Xft.dpi:             120
+!!Xft.dpi:             144
+Xft.dpi:             120
 !!*URxvt*font:         xft:Monospace:size=9
 !!*URxvt*boldfont:     xft:Monospace-Bold=9
 !!*URxvt*letterSpace:   -1
-*URxvt*font:         xft:Source Code Pro:size=9
-*URxvt*boldfont:     xft:Source Code Pro:Bold:size=9
+*URxvt*font:         xft:Source Code Pro:size=11
+*URxvt*boldfont:     xft:Source Code Pro:Bold:size=11
 *URxvt*background:   rgba:0000/1111/2222/cccc
 *URxvt*foreground:   white
 *URxvt*depth:        32
