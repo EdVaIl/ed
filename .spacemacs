@@ -28,6 +28,7 @@ values."
      colors
      dash
      emacs-lisp
+     fsharp
      git
      github
      gnus

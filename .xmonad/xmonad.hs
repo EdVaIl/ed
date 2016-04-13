@@ -24,7 +24,9 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
     myConfig = def
            { terminal    = "urxvtc"
            , modMask     = mod4Mask
-           , borderWidth = 0
+           , borderWidth = 1
+           , normalBorderColor = "#000"
+           , focusedBorderColor = "#FF0"
            , logHook = myLogHook
            }
            `additionalKeysP`
