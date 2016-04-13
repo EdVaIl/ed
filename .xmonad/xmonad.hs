@@ -3,6 +3,8 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Hooks.FadeInactive
 import XMonad.Util.WorkspaceCompare
+import XMonad.Layout.LayoutHints
+import Data.Ratio
 
 main :: IO ()
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
@@ -28,6 +30,7 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
            , normalBorderColor = "#000"
            , focusedBorderColor = "#FF0"
            , logHook = myLogHook
+           , layoutHook = myLayout
            }
            `additionalKeysP`
            [ ("M-S-z",                   spawn "xscreensaver-command -lock")
@@ -39,4 +42,6 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
            , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
            ]
     myLogHook = fadeInactiveLogHook fadeAmount
-      where fadeAmount = 0.8
+      where fadeAmount = 0.82222
+
+    myLayout = layoutHintsToCenter (Tall 1 (3/100) (1/2))
