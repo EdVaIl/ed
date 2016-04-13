@@ -5,7 +5,7 @@
 !!*URxvt*letterSpace:   -1
 *URxvt*font:         xft:Source Code Pro:size=11
 *URxvt*boldfont:     xft:Source Code Pro:Bold:size=11
-*URxvt*background:   rgba:0000/1111/2222/cccc
+*URxvt*background:   rgba:1111/2222/3333/eeee
 *URxvt*foreground:   white
 *URxvt*depth:        32
 *URxvt*keysym.S-F1:	 \033[1;2P
