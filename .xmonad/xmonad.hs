@@ -1,9 +1,14 @@
+import Data.Ratio ((%))
 import XMonad
 import XMonad.Hooks.DynamicLog
-import XMonad.Util.EZConfig
 import XMonad.Hooks.FadeInactive
-import XMonad.Util.WorkspaceCompare
 import XMonad.Layout.NoBorders
+import XMonad.Util.EZConfig
+import XMonad.Util.WorkspaceCompare
+import XMonad.Layout.Spacing
+import XMonad.Layout.Master
+import XMonad.Layout.Grid
+-- import XMonad.Layout.Tabbed
 
 main :: IO ()
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
@@ -16,19 +21,19 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
     , ppWsSep   = ""
     , ppSep     = ""
     , ppLayout  = xmobarColor "white" "" . (\ x -> case x of
-        "Tall"        -> "│├┤"
-        "Mirror Tall" -> "├┬┤"
-        "Full"        -> "│ │"
-        _             -> x
+        "SmartSpacingWithEdge 2 Mastered Grid"        -> "│├┤"
+        "Mirror SmartSpacingWithEdge 2 Mastered Grid" -> "├┬┤"
+        "Full"                                        -> "│ │"
+        _                                             -> x
       )
     }
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
     myConfig = def
            { terminal    = "urxvtc"
            , modMask     = mod4Mask
-           , borderWidth = 1
+           , borderWidth = 0
            , normalBorderColor = "#000"
-           , focusedBorderColor = "#FF0"
+           , focusedBorderColor = "#FFF"
            , logHook = myLogHook
            , layoutHook = myLayout
            }
@@ -45,16 +50,12 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
            ]
     myLogHook = fadeInactiveLogHook fadeAmount
       where fadeAmount = 0.9
-    myLayout = smartBorders (tiled ||| Mirror tiled ||| Full)
+    myLayout = smartBorders $ masteredGrid ||| Mirror masteredGrid ||| full
       where
-        -- default tiling algorithm partitions the screen into two panes
-        tiled   = Tall nmaster delta ratio
-
-        -- The default number of windows in the master pane
-        nmaster = 1
-
-        -- Default proportion of screen occupied by master pane
-        ratio   = 1/2
-
-        -- Percent of screen to increment by when resizing panes
-        delta   = 3/100
+        masteredGrid = spaced $ mastered delta ratio Grid
+        full         = noBorders Full
+        -- tabs         = borders simpleTabbedBottom
+        spaced       = smartSpacingWithEdge 2
+        -- masters      = 1
+        ratio        = 1%2
+        delta        = 1%12

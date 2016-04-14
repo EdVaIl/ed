@@ -1,5 +1,5 @@
+!!Xft.dpi:             120
 !!Xft.dpi:             144
-Xft.dpi:             120
 !!*URxvt*font:         xft:Monospace:size=9
 !!*URxvt*boldfont:     xft:Monospace-Bold=9
 !!*URxvt*letterSpace:   -1
@@ -12,3 +12,4 @@ Xft.dpi:             120
 *URxvt*keysym.S-F2:	 \033[1;2Q
 *URxvt*keysym.CS-F2: \033[1;6Q
 *URxvt*scrollBar:    false
+xmessage*international: true
