@@ -300,8 +300,6 @@ layers configuration. You are free to put any user code."
  '(display-time-24hr-format t)
  '(display-time-default-load-average nil)
  '(display-time-mode t)
- '(evil-escape-key-sequence "hc")
- '(evil-escape-unordered-key-sequence t)
  '(fancy-battery-show-percentage t)
  '(global-auto-revert-mode t)
  '(indent-tabs-mode nil)

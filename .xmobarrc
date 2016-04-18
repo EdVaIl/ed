@@ -1,6 +1,6 @@
 Config { font             = "xft:Source Code Pro:size=11"
        , alpha            = 153
-       , commands = [ Run Kbd                [ ("us(dvorak)", "<fc=lightgreen>DV</fc>")
+       , commands = [ Run Kbd                [ ("us", "<fc=lightgreen>US</fc>")
                                              , ("ru"        , "<fc=red>RU</fc>")
                                              ]
                     , Run Brightness         [ "-t", "<percent>%я"
