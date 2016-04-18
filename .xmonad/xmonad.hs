@@ -1,9 +1,9 @@
 import           XMonad
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.FadeInactive
 import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
+import           XMonad.Hooks.FadeWindows
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 
@@ -28,10 +28,11 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
           { terminal    = "urxvtc"
           , modMask     = mod4Mask
           , borderWidth = 1
-          , normalBorderColor = "#000"
-          , focusedBorderColor = "#FF0"
-          , logHook = myLogHook
+          , normalBorderColor  = "#000"
+          , focusedBorderColor = "#0FF"
           , layoutHook = myLayout
+          , logHook = fadeWindowsLogHook myFadeHook
+          , handleEventHook = fadeWindowsEventHook
           }
           `additionalKeysP` [
             ("<XF86AudioLowerVolume>" , spawn "pamixer --decrease 2 --unmute")
@@ -59,8 +60,8 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
           , ("M-M1-k"                 , sendMessage $ MoveSplit U            )
           , ("M-M1-l"                 , sendMessage $ MoveSplit R            )
 
-          , ("M-r"                    , sendMessage   Rotate                 )
           , ("M-s"                    , sendMessage   Swap                   )
+          , ("M-M1-s"                 , sendMessage   Rotate                 )
           , ("M-n"                    , sendMessage   FocusParent            )
           , ("M-C-n"                  , sendMessage   SelectNode             )
           , ("M-S-n"                  , sendMessage   MoveNode               )
@@ -68,9 +69,11 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
           , ("M-S-a"                  , sendMessage   Equalize               )
 
           , ("M-S-z"                  , spawn "xscreensaver-command -lock"   )
+          , ("M-C-4",     spawn "killall xcompmgr; sleep 1; xcompmgr -cCfF &")
           ]
-  myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.9
+  myFadeHook = composeAll [isUnfocused --> transparency 0.2
+                          ,                opaque
+                          ]
   myLayout = bsp ||| full
     where
       bsp          = smartBorders $ smartSpacingWithEdge mySpacing emptyBSP

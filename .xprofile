@@ -1,4 +1,4 @@
 sh ~/.fehbg
-xcompmgr &
+xcompmgr -cCfF &
 urxvtd -q -o -f
 xscreensaver -nosplash &
