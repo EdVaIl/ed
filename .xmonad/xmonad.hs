@@ -69,7 +69,7 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
           , ("M-S-a"                  , sendMessage   Equalize               )
 
           , ("M-S-z"                  , spawn "xscreensaver-command -lock"   )
-          , ("M-C-4",     spawn "killall xcompmgr; sleep 1; xcompmgr -cCfF &")
+          , ("M-C-4",     spawn "killall xcompmgr; sleep 1; xcompmgr -CfF &")
           ]
   myFadeHook = composeAll [isUnfocused --> transparency 0.2
                           ,                opaque
