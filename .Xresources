@@ -3,7 +3,7 @@
 !!*URxvt*foreground:   rgba:1111/2222/3333/eeee
 !!*URxvt*letterSpace:   -1
 !!*reverseVideo: on
-!!Xft.dpi:             120
+Xft.dpi:             120
 !!Xft.dpi:             144
 *URxvt*internalBorder: 0
 *URxvt*borderless: true
