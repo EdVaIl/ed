@@ -120,7 +120,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+                               :size 19
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -257,27 +257,7 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (fancy-battery-mode)
-  (eval-after-load 'quail
-    '(progn
-       (add-to-list 'quail-keyboard-layout-alist
-                    '("dvp" . "\
-                              \
-  %&7[5{3}1(9=0*2)4+6]8!`#    \
-  ;:,<.>pPyYfFgGcCrRlL/?@^    \
-  aAoOeEuUiIdDhHtTnNsS-_\\|    \
-  '\"qQjJkKxXbBmMwWvVzZ        \
-                              "))
-       (add-to-list 'quail-keyboard-layout-alist
-                    '("dvorak" . "\
-                              \
-  1!2@3#4$5%6^7&8*9(0)[{]}`~  \
-  '\",<.>pPyYfFgGcCrRlL/?=+    \
-  aAoOeEuUiIdDhHtTnNsS-_\\|    \
-  ;:qQjJkKxXbBmMwWvVzZ         \
-                             "))
-       (quail-set-keyboard-layout "dvorak")))
-  )
+  (fancy-battery-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

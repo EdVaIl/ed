@@ -2,7 +2,6 @@ import           XMonad
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.NoBorders
-import           XMonad.Layout.Spacing
 import           XMonad.Hooks.FadeWindows
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
@@ -17,14 +16,13 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
   , ppWsSep   = ""
   , ppSep     = " "
   , ppLayout  = xmobarColor "white" "" . (\ x -> case () of
-    _ | x == "SmartSpacingWithEdge " ++ end        -> "│├┤"
-      | x == "Full"                                -> "│ │"
+    _ | x == "BSP"  -> "│├┤"
+      | x == "Full" -> "│ │"
       | otherwise -> x
-      where end = show mySpacing ++ " BSP"
     )
   }
   toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-  myConfig = def
+  myConfig =  def
           { terminal    = "urxvtc"
           , modMask     = mod4Mask
           , borderWidth = 1
@@ -78,6 +76,5 @@ main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
                           ]
   myLayout = bsp ||| full
     where
-      bsp          = smartBorders $ smartSpacingWithEdge mySpacing emptyBSP
+      bsp          = smartBorders emptyBSP
       full         = noBorders Full
-  mySpacing = 0
