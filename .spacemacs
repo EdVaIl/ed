@@ -257,27 +257,7 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (fancy-battery-mode)
-  (eval-after-load 'quail
-    '(progn
-       (add-to-list 'quail-keyboard-layout-alist
-                    '("dvp" . "\
-                              \
-  %&7[5{3}1(9=0*2)4+6]8!`#    \
-  ;:,<.>pPyYfFgGcCrRlL/?@^    \
-  aAoOeEuUiIdDhHtTnNsS-_\\|    \
-  '\"qQjJkKxXbBmMwWvVzZ        \
-                              "))
-       (add-to-list 'quail-keyboard-layout-alist
-                    '("dvorak" . "\
-                              \
-  1!2@3#4$5%6^7&8*9(0)[{]}`~  \
-  '\",<.>pPyYfFgGcCrRlL/?=+    \
-  aAoOeEuUiIdDhHtTnNsS-_\\|    \
-  ;:qQjJkKxXbBmMwWvVzZ         \
-                             "))
-       (quail-set-keyboard-layout "dvorak")))
-  )
+  (fancy-battery-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -300,6 +280,7 @@ layers configuration. You are free to put any user code."
  '(display-time-24hr-format t)
  '(display-time-default-load-average nil)
  '(display-time-mode t)
+ '(evil-escape-unordered-key-sequence t)
  '(fancy-battery-show-percentage t)
  '(global-auto-revert-mode t)
  '(indent-tabs-mode nil)
@@ -398,11 +379,11 @@ layers configuration. You are free to put any user code."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time) t)
+ '(org-log-done (quote time))
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t t)
+ '(org-startup-with-inline-images t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
