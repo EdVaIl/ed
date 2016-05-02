@@ -17,5 +17,5 @@ BoldAsFont=yes
 ScrollMod=off
 BoldAsColour=yes
 Printer=Invia a OneNote 16
-OpaqueWhenFocused=yes
+OpaqueWhenFocused=no
 PgUpDnScroll=no
