@@ -1,7 +1,0 @@
-[user]
-	email = ed.il@live.com
-	name = Ed Ilyin
-[push]
-	default = simple
-[credential]
-	helper = /usr/lib/git-core/git-credential-gnome-keyring
