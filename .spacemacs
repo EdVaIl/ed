@@ -296,7 +296,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(bbdb-file "~/Dropbox/.emacs.d/bbdb")
+ '(bbdb-file "~/Dropbox/Documents/bbdb")
  '(blink-cursor-mode nil)
  '(browse-url-browser-function (quote browse-url-default-browser))
  '(cal-tex-24 t)
@@ -326,7 +326,7 @@ you should place your code here."
              ((org-agenda-overriding-header "Tickler")
               (org-agenda-files
                (quote
-                ("~/Dropbox/.emacs.d/org/tickler.org")))
+                ("~/Dropbox/Documents/org/tickler.org")))
               (org-agenda-max-entries 1)))
        (agenda ""
                ((org-agenda-span
@@ -337,7 +337,7 @@ you should place your code here."
              ((org-agenda-overriding-header "Arrivo (controllato documenti cartacei, registratore, le immagini, OneNote ed e-mail):")
               (org-agenda-files
                (quote
-                ("~/Dropbox/.emacs.d/org/inbox.org")))
+                ("~/Dropbox/Documents/org/inbox.org")))
               (org-agenda-max-entries 1)))
        (tags-todo "@home-BLOCKED=\"t\"/-PROJECT"
                   ((org-agenda-overriding-header "Next actions at home:")))
@@ -371,7 +371,7 @@ you should place your code here."
                  (quote day)))))
       ((org-agenda-files
         (quote
-         ("~/Dropbox/.emacs.d/org/also.org"))))
+         ("~/Dropbox/Documents/org/also.org"))))
       nil)
      ("w" "Week everywhere"
       ((agenda ""
@@ -388,7 +388,7 @@ you should place your code here."
              ((org-agenda-overriding-header "Inbox (check also OneNote and mail):")
               (org-agenda-files
                (quote
-                ("~/Dropbox/.emacs.d/org/inbox.org")))))
+                ("~/Dropbox/Documents/org/inbox.org")))))
        (tags-todo "BLOCKED=\"t\"/WAITING"
                   ((org-agenda-overriding-header "Force:")))
        (tags-todo "SOMEDAY" nil)
@@ -396,7 +396,7 @@ you should place your code here."
       nil nil))))
  '(org-agenda-files
    (quote
-    ("~/Dropbox/.emacs.d/org/grei.org" "~/Dropbox/.emacs.d/org/famiglia.org" "~/Dropbox/.emacs.d/org/io.org" "~/Dropbox/.emacs.d/org/inbox.org" "~/Dropbox/.emacs.d/org/tickler.org" "~/Dropbox/.emacs.d/org/todo.org" "~/Dropbox/.emacs.d/org/also.org" "~/Dropbox/.emacs.d/org/reference.org")))
+    ("~/Dropbox/Documents/org/grei.org" "~/Dropbox/Documents/org/famiglia.org" "~/Dropbox/Documents/org/io.org" "~/Dropbox/Documents/org/inbox.org" "~/Dropbox/Documents/org/tickler.org" "~/Dropbox/Documents/org/todo.org" "~/Dropbox/Documents/org/also.org" "~/Dropbox/Documents/org/reference.org")))
  '(org-agenda-start-with-log-mode t)
  '(org-agenda-tags-todo-honor-ignore-options t)
  '(org-agenda-todo-ignore-deadlines (quote far))
