@@ -1,0 +1,19 @@
+!!*URxvt*boldfont:     xft:Monospace-Bold=9
+!!*URxvt*font:         xft:Monospace:size=9
+!!*URxvt*foreground:   rgba:1111/2222/3333/eeee
+!!*URxvt*letterSpace:   -1
+!!*reverseVideo: on
+!!Xft.dpi:             120
+!!Xft.dpi:             144
+*URxvt*internalBorder: 0
+*URxvt*borderless: true
+*URxvt*background:   rgba:1111/2222/3333/eeee
+*URxvt*boldfont:     xft:Source Code Pro:Bold:size=11
+*URxvt*depth:        32
+*URxvt*font:         xft:Source Code Pro:size=11
+*URxvt*foreground:   white
+*URxvt*keysym.CS-F2: \033[1;6Q
+*URxvt*keysym.S-F1:	 \033[1;2P
+*URxvt*keysym.S-F2:	 \033[1;2Q
+*URxvt*scrollBar:    false
+*xmessage*international: true

@@ -1,1 +1,2 @@
-status --is-login; and status --is-interactive; and exec byobu-launcher
+. /usr/share/autojump/autojump.fish
+fish_vi_mode
