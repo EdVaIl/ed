@@ -26,6 +26,7 @@ values."
      auto-completion
      better-defaults
      colors
+     csv
      dash
      emacs-lisp
      git
@@ -115,7 +116,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 19
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -252,7 +253,6 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (fancy-battery-mode)
   (eval-after-load 'quail
     '(progn
        (add-to-list 'quail-keyboard-layout-alist
