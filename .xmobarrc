@@ -1,4 +1,4 @@
-Config { font             = "xft:Source Code Pro:size=11"
+Config { font             = "xft:Source Code Pro:size=12"
        , alpha            = 153
        , commands = [ Run Kbd                [ ("us", "<fc=lightgreen>US</fc>")
                                              , ("ru"        , "<fc=red>RU</fc>")
