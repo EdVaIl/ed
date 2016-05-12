@@ -40,6 +40,7 @@ values."
      auto-completion
      better-defaults
      colors
+     csharp
      csv
      dash
      emacs-lisp
@@ -138,7 +139,7 @@ values."
                                :size 17
                                :weight normal
                                :width normal
-                               :powerline-scale 1.5)
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'

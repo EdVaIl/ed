@@ -1,5 +1,0 @@
-#!/bin/sh
-sh ~/.fehbg
-xcompmgr -CfF &
-urxvtd -q -o -f
-xscreensaver -nosplash &
