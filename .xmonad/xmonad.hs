@@ -1,4 +1,5 @@
 import           XMonad
+import XMonad.Layout.BorderResize
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.NoBorders
@@ -10,6 +11,7 @@ import           XMonad.Hooks.ManageDocks
 
 main :: IO ()
 main = xmonad myConfig where
+
 -- main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig where
 --   myPP = xmobarPP {
 --     ppCurrent = xmobarColor "green"  ""
@@ -25,15 +27,16 @@ main = xmonad myConfig where
 --     )
 --   }
 --   toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
   myConfig = gnomeConfig
           { terminal    = "urxvtcd"
           , modMask     = mod4Mask
           , borderWidth = 1
           , normalBorderColor  = "#000"
           , focusedBorderColor = "#0FF"
-          , layoutHook = avoidStruts myLayout
-          , logHook = fadeWindowsLogHook myFadeHook
-          , handleEventHook = fadeWindowsEventHook
+          , layoutHook = myLayout
+          -- , logHook = fadeWindowsLogHook myFadeHook
+          -- , handleEventHook = fadeWindowsEventHook
           }
           `additionalKeysP` [
             ("M-h"                    , windows W.focusUp                    )
@@ -64,21 +67,22 @@ main = xmonad myConfig where
 
           , ("M-g"                    , spawn "google-chrome-stable &"       )
           , ("M-m"                    , spawn "emacsclient -c -n"            )
-  --         , ("M-S-z"                  , spawn "xscreensaver-command -lock"   )
           , ("M-S-q"                  , spawn "gnome-session-quit"           )
-  --         , ("M-C-4",      spawn "killall xcompmgr; sleep 1; xcompmgr -CfF &")
-          
-  --         -- , ("<XF86AudioLowerVolume>" , spawn "pamixer --decrease 2 --unmute")
-  --         -- , ("<XF86AudioMute>"        , spawn "pamixer --toggle-mute"        )
-  --         -- , ("<XF86AudioPlay>"        , spawn "ncmpcpp toggle"               )
-  --         -- , ("<XF86AudioRaiseVolume>" , spawn "pamixer --increase 2 --unmute")
-  --         -- , ("<XF86MonBrightnessDown>", spawn "xbacklight -5"                )
-  --         -- , ("<XF86MonBrightnessUp>"  , spawn "xbacklight +5"                )
+          , ("M-C-4",      spawn "killall xcompmgr; sleep 1; xcompmgr -CfF &")
+          -- , ("M-S-z"                  , spawn "xscreensaver-command -lock"   )
+          -- , ("<XF86AudioLowerVolume>" , spawn "pamixer --decrease 2 --unmute")
+          -- , ("<XF86AudioMute>"        , spawn "pamixer --toggle-mute"        )
+          -- , ("<XF86AudioPlay>"        , spawn "ncmpcpp toggle"               )
+          -- , ("<XF86AudioRaiseVolume>" , spawn "pamixer --increase 2 --unmute")
+          -- , ("<XF86MonBrightnessDown>", spawn "xbacklight -5"                )
+          -- , ("<XF86MonBrightnessUp>"  , spawn "xbacklight +5"                )
           ]
-  myFadeHook = composeAll [isUnfocused --> transparency 0.2
-                          ,                opaque
-                          ]
-  myLayout = bsp ||| full
+
+  myLayout = borderResize $ avoidStruts $ bsp ||| full
     where
       bsp          = smartBorders emptyBSP
       full         = noBorders Full
+
+  -- myFadeHook = composeAll [isUnfocused --> transparency 0.2
+  --                         ,                opaque
+  --                         ]
