@@ -124,7 +124,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(tango-dark
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
                          solarized-dark
@@ -136,7 +137,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 17
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -310,7 +311,7 @@ you should place your code here."
  '(display-time-default-load-average nil)
  '(display-time-mode t)
  '(evil-escape-unordered-key-sequence t)
- '(fancy-battery-show-percentage t)
+ '(fancy-battery-show-percentage t t)
  '(global-auto-revert-mode t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
@@ -319,6 +320,8 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(magit-tag-arguments (quote ("--annotate")))
+ '(omnisharp-server-executable-path
+   "~/git/github.com/OmniSharp/omnisharp-server/OmniSharp/bin/Release/OmniSharp.exe")
  '(org-agenda-custom-commands
    (quote
     (("d" . "Today")
@@ -408,11 +411,11 @@ you should place your code here."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time))
+ '(org-log-done (quote time) t)
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t)
+ '(org-startup-with-inline-images t t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
