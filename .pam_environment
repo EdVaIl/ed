@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 LANGUAGE=it:en:ru:lv
+=======
+LANGUAGE=it:en
+>>>>>>> 690f3a627b79faa9b88445aa1935b4278f1d08f1
 LANG=it_IT.UTF-8
 LC_NUMERIC=lv_LV.UTF-8
 LC_TIME=lv_LV.UTF-8

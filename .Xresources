@@ -1,6 +1,5 @@
-*URxvt*boldfont:     xft:Ubuntu Mono:Bold:size=13
-*URxvt*font:         xft:Ubuntu Mono:size=13
-!!*URxvt*font:         xft:Source Code Pro:size=11
+*URxvt*font:         xft:Source Code Pro-Regular:size=14
+*URxvt*boldfont:     xft:Source Code Pro-Bold:size=14
 !!*URxvt*foreground:   rgba:1111/2222/3333/eeee
 !!*URxvt*letterSpace:   -1
 !!*reverseVideo: on
@@ -9,7 +8,6 @@
 *URxvt*internalBorder: 0
 *URxvt*borderless: true
 *URxvt*background:   rgba:1111/2222/3333/eeee
-!!*URxvt*boldfont:     xft:Source Code Pro:Bold:size=11
 *URxvt*depth:        32
 *URxvt*foreground:   white
 *URxvt*keysym.CS-F2: \033[1;6Q

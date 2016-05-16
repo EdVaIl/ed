@@ -40,6 +40,7 @@ values."
      auto-completion
      better-defaults
      colors
+     csharp
      csv
      dash
      emacs-lisp
