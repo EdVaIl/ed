@@ -53,7 +53,7 @@ plugins=(autojump battery command-not-found emacs git zsh-autosuggestions zsh-sy
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,4 +82,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -s "/home/ed/.dnx/dnvm/dnvm.sh" ] && . "/home/ed/.dnx/dnvm/dnvm.sh" # Load dnvm
 source ~/Dropbox/bash/aliases
