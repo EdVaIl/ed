@@ -67,7 +67,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(bbdb)
+   dotspacemacs-additional-packages '(bbdb solidity-mode)
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -137,7 +137,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 18
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -287,6 +287,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (require 'solidity-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -312,6 +313,7 @@ you should place your code here."
  '(display-time-mode t)
  '(evil-escape-unordered-key-sequence t)
  '(fancy-battery-show-percentage t t)
+ '(global-auto-highlight-symbol-mode t)
  '(global-auto-revert-mode t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
@@ -411,11 +413,11 @@ you should place your code here."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time) t)
+ '(org-log-done (quote time))
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t t)
+ '(org-startup-with-inline-images t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"

@@ -84,3 +84,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -s "/home/ed/.dnx/dnvm/dnvm.sh" ] && . "/home/ed/.dnx/dnvm/dnvm.sh" # Load dnvm
+source ~/Dropbox/bash/aliases
