@@ -313,6 +313,7 @@ you should place your code here."
  '(display-time-mode t)
  '(evil-escape-unordered-key-sequence t)
  '(fancy-battery-show-percentage t t)
+ '(global-auto-highlight-symbol-mode t)
  '(global-auto-revert-mode t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
@@ -412,11 +413,11 @@ you should place your code here."
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-hierarchical-todo-statistics nil)
- '(org-log-done (quote time) t)
+ '(org-log-done (quote time))
  '(org-lowest-priority 68)
  '(org-mobile-directory "~/Dropbox/Apps/MobileOrg")
  '(org-priority-start-cycle-with-default nil)
- '(org-startup-with-inline-images t t)
+ '(org-startup-with-inline-images t)
  '(org-stuck-projects
    (quote
     ("-MAYBE-SOMEDAY/PROJECT"
