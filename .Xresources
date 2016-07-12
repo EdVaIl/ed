@@ -1,5 +1,5 @@
-*URxvt*font:         xft:Source Code Pro-Regular:size=14
-*URxvt*boldfont:     xft:Source Code Pro-Bold:size=14
+*URxvt*font:         xft:Source Code Pro-Regular:size=13
+*URxvt*boldfont:     xft:Source Code Pro-Bold:size=13
 !!*URxvt*foreground:   rgba:1111/2222/3333/eeee
 !!*URxvt*letterSpace:   -1
 !!*reverseVideo: on

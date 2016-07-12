@@ -36,7 +36,7 @@ main = xmonad myConfig where
           , focusedBorderColor = "#0FF"
           , layoutHook = myLayout
           -- , logHook = fadeWindowsLogHook myFadeHook
-          -- , handleEventHook = fadeWindowsEventHook
+          -- , handleEventHook = fullscreenEventHook
           }
           `additionalKeysP` [
             ("M-h"                    , windows W.focusUp                    )
