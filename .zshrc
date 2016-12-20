@@ -55,6 +55,10 @@ plugins=(autojump battery command-not-found emacs git zsh-autosuggestions zsh-sy
 
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
 source $ZSH/oh-my-zsh.sh
 

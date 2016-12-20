@@ -1,5 +1,7 @@
-*URxvt*font:         xft:Source Code Pro-Regular:size=13
-*URxvt*boldfont:     xft:Source Code Pro-Bold:size=13
+URxvt*font: xft:Fira Code:antialias=true:pixelsize=16
+URxvt*boldFont: xft:Fira Code:style=bold:antialias=true:pixelsize=16
+URxvt*italicFont: xft:Fira Code:style=italic:antialias=true:pixelsize=16
+URxvt*boldItalicFont: xft:Fira Code:style=bolditalic:antialias=true:pixelsize=16
 !!*URxvt*foreground:   rgba:1111/2222/3333/eeee
 !!*URxvt*letterSpace:   -1
 !!*reverseVideo: on
